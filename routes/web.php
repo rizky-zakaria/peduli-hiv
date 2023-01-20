@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KesehatanController;
 use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\KonsumsiObatController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PerjalananController;
@@ -26,11 +27,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('dikes/home');
+    return redirect('landing-page');
 });
 
 Auth::routes();
-
+Route::get('landing-page', [LandingController::class, 'index']);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('obat/cari/{nama}', [ObatController::class, 'cari'])->name('cari.pasien');
     Route::group(['middleware' => ['role:dikes'], 'prefix' => 'dikes'], function () {
