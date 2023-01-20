@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Biodata;
+use App\Models\DistribusiObat;
+use App\Models\Dosis;
 use App\Models\HistoriObat;
 use App\Models\Obat;
 use App\Models\User;
@@ -27,22 +30,29 @@ class ObatController extends Controller
     public function ambilObat(Request $request)
     {
         $pasien = User::find($request->userId);
-
         for ($i = 0; $i < count($request->obat); $i++) {
             $obat = Obat::find($request->obat[$i]);
-            if ($obat->jumlah > $request->banyak[$i]) {
-                $obat->jumlah = $obat->jumlah - $request->banyak[$i];
+            if ($obat->stok > $request->banyak[$i]) {
+                $obat->stok = $obat->stok - $request->banyak[$i];
                 $obat->update();
+
+                DistribusiObat::create([
+                    'pasien_id' => $request->userId,
+                    'faskes_id' => Auth::user()->id,
+                    'obat_id' => $request->obat[$i],
+                    'dosis' => $request->dosis,
+                    'jumlah' => $request->banyak[$i]
+                ]);
             } else {
                 toast('Persediaan obat tidak cukup', 'error');
-                return redirect(url('dikes/obat'));
+                return redirect(url('faskes/obat'));
             }
         }
 
         HistoriObat::create([
             'history' => Auth::user()->name . " memberikan obat kepada pasien " . $pasien->name . " pada tanggal " . date('d M Y')
         ]);
-        return redirect(url('dikes/obat'));
+        return redirect(url('faskes/obat'));
     }
 
     /**
@@ -140,11 +150,12 @@ class ObatController extends Controller
         return back();
     }
 
-    public function cari($nama)
+    public function cari($nik)
     {
-        $data = User::where('name', $nama)->first();
-
-        if (isset($data->name)) {
+        $data = Biodata::join('users', 'users.id', '=', 'biodatas.pasien_id')
+            ->where('biodatas.nik', $nik)
+            ->first();
+        if (isset($data->nik)) {
             return response()->json($data);
         } else {
             return response()->json(null);

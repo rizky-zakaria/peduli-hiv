@@ -33,7 +33,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('landing-page', [LandingController::class, 'index']);
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('obat/cari/{nama}', [ObatController::class, 'cari'])->name('cari.pasien');
+    Route::get('obat/cari/{nik}', [ObatController::class, 'cari'])->name('cari.pasien');
     Route::group(['middleware' => ['role:dikes'], 'prefix' => 'dikes'], function () {
         Route::resource('faskes', FaskesController::class);
         Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);

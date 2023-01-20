@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('distribusi_obats', function (Blueprint $table) {
+        Schema::create('doses', function (Blueprint $table) {
             $table->id();
-            $table->integer('faskes_id');
             $table->integer('pasien_id');
             $table->integer('obat_id');
-            $table->integer('jumlah');
             $table->string('dosis');
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('distribusi_obats');
+        Schema::dropIfExists('doses');
     }
 };
