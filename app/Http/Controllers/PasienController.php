@@ -6,6 +6,7 @@ use App\Models\Biodata;
 use App\Models\Cluster;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PasienController extends Controller
@@ -81,6 +82,11 @@ class PasienController extends Controller
             'jk' => $request->jk,
             'pekerjaan' => $request->pekerjaan,
             'pendidikan' => $request->pendidikan
+        ]);
+
+        Cluster::create([
+            'pasien_id' => $pasien->id,
+            'faskes_id' => Auth::user()->id
         ]);
 
         return redirect()->route('pasien.index');

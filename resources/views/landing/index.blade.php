@@ -611,7 +611,6 @@
         <!-- ======= Features Section ======= -->
         <section id="alur" class="features">
             <div class="container">
-
                 <div class="row">
                     <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
                         <ul class="nav nav-tabs flex-column">
