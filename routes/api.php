@@ -32,9 +32,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * route "/logout"
  * @method "POST"
  */
+Route::post('chat/post/', [KonsultasiController::class, 'postChatText']);
 Route::post('chat/get-chat', [KonsultasiController::class, 'getChat']);
 Route::get('faskes-name/{id}', [KonsultasiController::class, 'getFaskesName']);
-Route::post('chat/post/', [KonsultasiController::class, 'postChatText']);
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
 Route::post('laporan-kondisi/id', [LaporanKondisiController::class, 'getLapById']);
 Route::post('laporan-kondisi', [LaporanKondisiController::class, 'postLapById']);
