@@ -30,8 +30,9 @@ class KonsultasiController extends Controller
 
     public function postChatText(Request $request)
     {
+        $cluster = Cluster::where('pasien_id', $request->id)->first();
         $data = Chat::create([
-            'cluster_id' => $request->id,
+            'cluster_id' => $cluster->id,
             'pengirim' => 'pasien',
             'pesan' => $request->pesan,
             'waktu' => date('H:i:s'),
