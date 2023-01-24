@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class KonsultasiController extends Controller
 {
-    public function getChat($id)
+    public function getChat(Request $request)
     {
         $data = Cluster::join('chats', 'chats.cluster_id', '=', 'clusters.id')
-            ->where('clusters.pasien_id', '=', $id)
+            ->where('clusters.pasien_id', '=', $request->id)
             ->get();
         return response()->json([
             'success' => TRUE,

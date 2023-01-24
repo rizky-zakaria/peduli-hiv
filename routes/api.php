@@ -32,7 +32,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * route "/logout"
  * @method "POST"
  */
-Route::get('chat/{id}', [KonsultasiController::class, 'getChat']);
+Route::post('chat/get-chat', [KonsultasiController::class, 'getChat']);
 Route::get('faskes-name/{id}', [KonsultasiController::class, 'getFaskesName']);
 Route::post('chat/post/', [KonsultasiController::class, 'postChatText']);
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
