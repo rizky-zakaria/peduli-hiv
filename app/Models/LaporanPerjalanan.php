@@ -9,5 +9,5 @@ class LaporanPerjalanan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pasien_id', 'tgl_kunjungan', 'tgl_pulang', 'tujuan'];
+    protected $fillable = ['pasien_id', 'tgl_kunjungan', 'tgl_pulang', 'tujuan', 'keterangan'];
 }
