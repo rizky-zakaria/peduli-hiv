@@ -18,7 +18,8 @@ return new class extends Migration
             $table->integer('pasien_id');
             $table->string('tgl_kunjungan');
             $table->string('tgl_pulang');
-            $table->string('tujuan');
+            $table->text('tujuan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
