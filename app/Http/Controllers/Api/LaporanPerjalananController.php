@@ -33,6 +33,7 @@ class LaporanPerjalananController extends Controller
         $post->tgl_kunjungan = $request->tgl_kunjungan;
         $post->tgl_pulang = $request->tgl_pulang;
         $post->tujuan = $request->tujuan;
+        $post->keterangan = $request->keterangan;
         $post->save();
 
         if ($post) {
