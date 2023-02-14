@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('berat');
-            $table->integer('tinggi');
+            $table->string('efek');
             $table->text('keluhan');
             $table->timestamps();
         });

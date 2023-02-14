@@ -41,11 +41,11 @@
                                             <td>{{ $row->terlewati }}</td>
                                             <td>
                                                 @if ($row->kepatuhan <= 80)
-                                                    <span class="badge badge-danger">{{ $row->kepatuhan }}</span>
+                                                    <span class="badge badge-danger">{{ $row->kepatuhan }}%</span>
                                                 @elseif($row->kepatuhan <= 95)
-                                                    <span class="badge badge-warning">{{ $row->kepatuhan }}</span>
+                                                    <span class="badge badge-warning">{{ $row->kepatuhan }}%</span>
                                                 @else
-                                                    <span class="badge badge-success">{{ $row->kepatuhan }}</span>
+                                                    <span class="badge badge-success">{{ $row->kepatuhan }}%</span>
                                                 @endif
                                             </td>
                                             <td>

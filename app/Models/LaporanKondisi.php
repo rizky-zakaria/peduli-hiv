@@ -9,5 +9,5 @@ class LaporanKondisi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'berat', 'tinggi', 'keluhan'];
+    protected $fillable = ['user_id', 'berat', 'efek', 'keluhan'];
 }

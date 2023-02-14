@@ -31,7 +31,7 @@ class LaporanKondisiController extends Controller
         $post = new LaporanKondisi;
         $post->user_id = $request->id;
         $post->berat = $request->berat;
-        $post->tinggi = $request->tinggi;
+        $post->efek = $request->tinggi;
         $post->keluhan = $request->keluhan;
         $post->save();
 

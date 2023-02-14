@@ -23,7 +23,7 @@
                                         <th>No</th>
                                         <th>Nama Pasien</th>
                                         <th>Berat</th>
-                                        <th>Tinggi</th>
+                                        <th>Efek Samping</th>
                                         <th>Keluhan</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -34,7 +34,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->name }}</td>
                                             <td>{{ $row->berat }}</td>
-                                            <td>{{ $row->tinggi }}</td>
+                                            <td>{{ $row->efek }}</td>
                                             <td>{{ $row->keluhan }}</td>
                                             <td>
                                                 <a href="{{ route('kesehatan.print', $row->id) }}"
@@ -48,7 +48,7 @@
                                         <th>No</th>
                                         <th>Nama Pasien</th>
                                         <th>Berat</th>
-                                        <th>Tinggi</th>
+                                        <th>Efek Samping</th>
                                         <th>Keluhan</th>
                                         <th>Aksi</th>
                                     </tr>
