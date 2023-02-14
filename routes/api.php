@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\HistoriController;
 use App\Http\Controllers\Api\KonsultasiController;
 use App\Http\Controllers\Api\LaporanKondisiController;
 use App\Http\Controllers\Api\LaporanKonsumsiController;
@@ -42,3 +43,4 @@ Route::post('laporan-konsumsi/id', [LaporanKonsumsiController::class, 'getLapByI
 Route::post('laporan-konsumsi', [LaporanKonsumsiController::class, 'postLapById']);
 Route::post('laporan-perjalanan/id', [LaporanPerjalananController::class, 'getLapById']);
 Route::post('laporan-perjalanan', [LaporanPerjalananController::class, 'postLapById']);
+Route::post('histori', [HistoriController::class, 'getHistoriById']);
