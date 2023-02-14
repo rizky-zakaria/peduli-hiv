@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(UserSeeder::class);
+        $this->call(FaskesSeeder::class);
+        $this->call(PasienSeeder::class);
+        $this->call(BiodataPasienSeeder::class);
+        $this->call(ClusterSeeder::class);
     }
 }
