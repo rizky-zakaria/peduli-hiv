@@ -49,39 +49,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="card card-statistic-2">
-                            <div class="card-chart">
-                                <canvas id="balance-chart" height="40"></canvas>
-                            </div>
-                            <div class="card-icon shadow-primary bg-primary">
-                                <i class="fas fa-notes-medical"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Jenis Obat</h4>
-                                </div>
-                                <div class="card-body">
-                                    {{ $jenis }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="card card-statistic-2">
-                            <div class="card-chart">
-                                <canvas id="sales-chart" height="40"></canvas>
-                            </div>
-                            <div class="card-icon shadow-primary bg-primary">
-                                <i class="fas fa-medkit"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Jumlah Obat</h4>
-                                </div>
-                                <div class="card-body">
-                                    {{ $obat }}
-                                </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Hello, {{ Auth::user()->name }}</h5>
                             </div>
                         </div>
                     </div>
@@ -89,13 +60,6 @@
             </div>
         </section>
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Hello, {{ Auth::user()->name }}</h5>
-                    </div>
-                </div>
-            </div>
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body" style="height: 400px; overflow: scroll;">

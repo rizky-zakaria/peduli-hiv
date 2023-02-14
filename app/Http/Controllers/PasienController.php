@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Biodata;
 use App\Models\Cluster;
+use App\Models\KonsumsiObat;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -81,7 +83,11 @@ class PasienController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'jk' => $request->jk,
             'pekerjaan' => $request->pekerjaan,
-            'pendidikan' => $request->pendidikan
+            'pendidikan' => $request->pendidikan,
+            'alamat' => $request->alamat,
+            'hamil' => $request->hamil,
+            'cd4' => $request->cd4,
+            'ims' => $request->ims
         ]);
 
         Cluster::create([
@@ -148,5 +154,35 @@ class PasienController extends Controller
     {
         $pasien->delete();
         return back();
+    }
+
+    public function art($id)
+    {
+        $biodata = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')->where('users.id', $id)->first();
+
+        $birthDate = new DateTime($biodata->tgl_lahir);
+        $today = new DateTime("today");
+        if ($birthDate > $today) {
+            exit("0 tahun 0 bulan 0 hari");
+        }
+        $y = $today->diff($birthDate)->y;
+        $m = $today->diff($birthDate)->m;
+        $d = $today->diff($birthDate)->d;
+        $umur = $y . " tahun " . $m . " bulan " . $d . " hari";
+
+        $konsumsi = KonsumsiObat::where('periode', date('m'))->first();
+
+        $kalender = CAL_GREGORIAN;
+        $bulan = date('m');
+        $tahun = date('Y');
+        $hari = cal_days_in_month($kalender, $bulan, $tahun);
+
+        if ($konsumsi == null) {
+            $adher = 0 * 100 / $hari;
+        } else {
+            $adher = $konsumsi->konsumsi * 100 / $hari;
+        }
+
+        return view('data.art', compact('biodata', 'umur', 'adher'));
     }
 }

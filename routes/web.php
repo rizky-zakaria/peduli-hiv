@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('perjalanan/print', [PerjalananController::class, 'cetakAll'])->name('perjalanan.printAll');
         Route::get('perjalanan/print/{id}', [PerjalananController::class, 'cetakById'])->name('perjalanan.print');
         Route::resource('perjalanan', PerjalananController::class);
+        Route::get('data-master/art/{id}', [PasienController::class, 'art']);
     });
     Route::group(['middleware' => ['role:pasien'], 'prefix' => 'pasien'], function () {
         Route::get('home', [HomeController::class, 'pasien'])->name('pasien.home');

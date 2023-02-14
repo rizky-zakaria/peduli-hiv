@@ -68,6 +68,33 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
+                                        <label for="ims">Infeksi Menular Seksual</label>
+                                        <input type="text" class="form-control" id="ims"
+                                            placeholder="Infeksi Menular Seksual" name="ims" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="cd4">Nilai CD4</label>
+                                        <input type="text" class="form-control" id="cd4" placeholder="Nilai CD4"
+                                            name="cd4" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="fungsional">Status Fungsional</label>
+                                        <select name="fungsional" id="fungsional" class="form-control" required>
+                                            <option selected disabled>Pilih</option>
+                                            <option value="Kerja">Kerja</option>
+                                            <option value="Ambulatori">Ambulatori</option>
+                                            <option value="Baring">Baring</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group">
                                         <label for="notelp">No. Telepon</label>
                                         <input type="text" class="form-control" id="notelp"
                                             placeholder="Nomor Telepon" name="notelp" required>
@@ -78,6 +105,16 @@
                                         <label for="tgl_lahir">Tanggal Lahir</label>
                                         <input type="date" class="form-control" id="tgl_lahir"
                                             placeholder="Tanggal Lahir" name="tgl_lahir" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="tgl_lahir">Data Kehamilan</label>
+                                        <select name="hamil" id="hamil" class="form-control" required>
+                                            <option selected disabled>Pilih</option>
+                                            <option value="IYA">IYA</option>
+                                            <option value="TIDAK">TIDAK</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -113,6 +150,14 @@
                                             <input type="text" class="form-control" id="pekerjaan"
                                                 placeholder="Pekerjaan" name="pekerjaan" required>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
