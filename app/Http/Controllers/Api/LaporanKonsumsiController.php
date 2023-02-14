@@ -33,6 +33,7 @@ class LaporanKonsumsiController extends Controller
         $post->konsumsi = $request->konsumsi;
         $post->terlewati = $request->terlewati;
         $post->periode = $request->periode;
+        $post->kepatuhan = $request->konsumsi / ($request->konsumsi + $request->terlewati) * 100;
         $post->save();
 
         if ($post) {

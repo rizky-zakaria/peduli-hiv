@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('konsumsi');
             $table->integer('terlewati');
             $table->string('periode');
+            $table->string('kepatuhan');
             $table->timestamps();
         });
     }

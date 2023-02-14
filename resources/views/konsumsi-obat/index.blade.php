@@ -26,6 +26,7 @@
                                         <th>Target</th>
                                         <th>Konsumsi</th>
                                         <th>Terlewati</th>
+                                        <th>Tingkat Kepatuhan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,7 @@
                                             <td>{{ $row->konsumsi + $row->terlewati }}</td>
                                             <td>{{ $row->konsumsi }}</td>
                                             <td>{{ $row->terlewati }}</td>
+                                            <td></td>
                                             <td>
                                                 <a href="{{ route('konsumsi-obat.print', $row->id) }}"
                                                     class="btn btn-warning"><i class="fas fa-print"></i></a>
@@ -53,6 +55,7 @@
                                         <th>Target</th>
                                         <th>Konsumsi</th>
                                         <th>Terlewati</th>
+                                        <th>Tingkat Kepatuhan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
