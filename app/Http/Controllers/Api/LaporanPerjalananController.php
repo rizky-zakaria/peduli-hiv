@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Histori;
 use App\Models\Kunjungan;
 use App\Models\LaporanPerjalanan;
 use Illuminate\Http\Request;
@@ -35,6 +36,11 @@ class LaporanPerjalananController extends Controller
         $post->tujuan = $request->tujuan;
         $post->keterangan = $request->keterangan;
         $post->save();
+
+        Histori::create([
+            'user_id' => $request->id,
+            'histori' => 'Anda berhasil melakukan pengiriman data perjalanan anda dengan perincian: Tujuan = ' . $request->tujuan . ', dalam agenda = ' . $request->keterangan . ', dengan waktu keberangkatan = ' . $request->tgl_kunjungan . '-' . $request->tgl_pulang . ' pada tanggal ' . date('d-m-Y')
+        ]);
 
         if ($post) {
             return response()->json([

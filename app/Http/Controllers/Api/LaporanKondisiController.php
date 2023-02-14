@@ -38,7 +38,7 @@ class LaporanKondisiController extends Controller
 
         Histori::create([
             'user_id' => $request->id,
-            'histori' => 'Anda berhasil melakukan pengiriman data kondisi anda dengan perincian: Berat = ' . $request->berat . ', Efek samping = ' . $request->efek . ', dan Keluhan = ' . $request->keluhan . ' pada tanggan ' . date('d-m-Y')
+            'histori' => 'Anda berhasil melakukan pengiriman data kondisi anda dengan perincian: Berat = ' . $request->berat . ', Efek samping = ' . $request->efek . ', dan Keluhan = ' . $request->keluhan . ' pada tanggal ' . date('d-m-Y')
         ]);
 
         if ($post) {
