@@ -87,7 +87,8 @@ class PasienController extends Controller
             'alamat' => $request->alamat,
             'hamil' => $request->hamil,
             'cd4' => $request->cd4,
-            'ims' => $request->ims
+            'ims' => $request->ims,
+            'fungsional' => $request->fungsional
         ]);
 
         Cluster::create([
