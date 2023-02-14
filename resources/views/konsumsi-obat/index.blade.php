@@ -39,7 +39,15 @@
                                             <td>{{ $row->konsumsi + $row->terlewati }}</td>
                                             <td>{{ $row->konsumsi }}</td>
                                             <td>{{ $row->terlewati }}</td>
-                                            <td></td>
+                                            <td>
+                                                @if ($row->kepatuhan <= 80)
+                                                    <span class="badge badge-danger">{{ $row->kepatuhan }}</span>
+                                                @elseif($row->kepatuhan <= 95)
+                                                    <span class="badge badge-warning">{{ $row->kepatuhan }}</span>
+                                                @else
+                                                    <span class="badge badge-success">{{ $row->kepatuhan }}</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{ route('konsumsi-obat.print', $row->id) }}"
                                                     class="btn btn-warning"><i class="fas fa-print"></i></a>
