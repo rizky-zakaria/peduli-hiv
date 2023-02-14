@@ -10,7 +10,7 @@ class Biodata extends Model
     use HasFactory;
 
     protected $fillable = [
-        'pasien_id', 'nik', 'tahun_lapor', 'bulan_lapor', 'tgl_kunjungan', 'no_rekamedik', 'no_reg_nas', 'no_telp', 'tgl_lahir', 'jk', 'pekerjaan', 'pendidikan', 'hamil', 'alamat', 'ims', 'cd4'
+        'pasien_id', 'nik', 'tahun_lapor', 'bulan_lapor', 'tgl_kunjungan', 'no_rekamedik', 'no_reg_nas', 'no_telp', 'tgl_lahir', 'jk', 'pekerjaan', 'pendidikan', 'hamil', 'alamat', 'ims', 'cd4', 'fungsional'
     ];
 
     public $timestamps = false;
