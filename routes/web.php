@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('dikes.home');
         Route::get('data-master/art', [ArtController::class, 'index'])->name('art.index');
-        Route::post('data-master/art', [ArtController::class, 'getArt']);
+        Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art.post');
     });
     Route::group(['middleware' => ['role:faskes'], 'prefix' => 'faskes'], function () {
         Route::get('home', [HomeController::class, 'faskes'])->name('faskes.home');

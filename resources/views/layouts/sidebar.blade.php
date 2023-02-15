@@ -25,6 +25,12 @@
                             Faskes</span>
                     </a>
                 </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('dikes/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
                 {{-- <li class="{{ request()->is('dikes/pasien') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('pasien.index') }}"><i class="fas fa-user-injured"></i>
                         <span>Data Pasien</span>
