@@ -27,7 +27,7 @@
                 </li>
                 <li class="menu-header">Laporan</li>
                 <li class="{{ request()->is('dikes/art') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('art.index') }}"><i class="fas fa-chart-bar"></i>
+                    <a class="nav-link" href="{{ route('art-dikes.index') }}"><i class="fas fa-chart-bar"></i>
                         <span>ART</span>
                     </a>
                 </li>
