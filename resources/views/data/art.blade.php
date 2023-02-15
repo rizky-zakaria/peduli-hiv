@@ -22,7 +22,7 @@
 <body>
 
     <div class="container d-flex justify-content-center mt-5">
-        <table cellspacing="7" border="1">
+        <table cellspacing="7" border="1" class="text-center">
             <tr>
                 <td>No. Registrasi Nasional</td>
                 <td>Tanggal Mulai</td>
