@@ -113,7 +113,7 @@
                     <h2>Statistik</h2>
                     <p>Kami Melayani Dengan Sepenuh Hati & Akan Memberikan Solusi Terbaik Untuk Anda</p>
                 </div>
-                <div id="map"></div>
+                {{-- <div id="map"></div> --}}
             </div>
         </section>
         <section id="about" class="about">
