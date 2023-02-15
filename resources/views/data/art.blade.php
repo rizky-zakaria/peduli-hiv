@@ -54,7 +54,7 @@
                     <td>{{ $item->no_reg_nas }}</td>
                     <td>{{ $item->cd4 }}</td>
                     <td>{{ $item->ims }}</td>
-                    <td>{{ }}</td>
+                    <td>{{ ($item->konsumsi * 100) / 30 }}</td>
                 </tr>
             @endforeach
         </table>
