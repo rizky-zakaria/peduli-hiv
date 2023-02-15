@@ -64,6 +64,11 @@
                     </a>
                 </li>
                 <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('faskes/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
                 <li class="{{ request()->is('faskes/konsumsi-obat') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('konsumsi-obat.index') }}"><i class="fas fa-file"></i>
                         <span>Konsumsi Obat</span>

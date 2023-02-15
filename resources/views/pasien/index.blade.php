@@ -47,9 +47,9 @@
                                                     <button type="submit" class="btn btn-danger"><i
                                                             class="fa fa-trash"></i> Hapus</button>
                                                 </form>
-                                                <a href="{{ url('faskes/data-master/art/' . $pasien->id) }}"
+                                                {{-- <a href="{{ url('faskes/data-master/art/' . $pasien->id) }}"
                                                     class="btn btn-primary"><i class="fas fa-chart-bar">
-                                                    </i> Data ART</a>
+                                                    </i> Data ART</a> --}}
                                             </td>
                                         </tr>
                                     @endforeach

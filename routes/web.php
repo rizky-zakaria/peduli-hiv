@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\LaporanPerjalananController;
+use App\Http\Controllers\ArtController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\FaskesController;
 use App\Http\Controllers\HomeController;
@@ -38,6 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('faskes', FaskesController::class);
         Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('dikes.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art.index');
+        Route::post('data-master/art', [ArtController::class, 'getArt']);
     });
     Route::group(['middleware' => ['role:faskes'], 'prefix' => 'faskes'], function () {
         Route::get('home', [HomeController::class, 'faskes'])->name('faskes.home');
@@ -58,7 +61,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('perjalanan/print', [PerjalananController::class, 'cetakAll'])->name('perjalanan.printAll');
         Route::get('perjalanan/print/{id}', [PerjalananController::class, 'cetakById'])->name('perjalanan.print');
         Route::resource('perjalanan', PerjalananController::class);
-        Route::get('data-master/art/{id}', [PasienController::class, 'art']);
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art.index');
+        Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art.post');
     });
     Route::group(['middleware' => ['role:pasien'], 'prefix' => 'pasien'], function () {
         Route::get('home', [HomeController::class, 'pasien'])->name('pasien.home');

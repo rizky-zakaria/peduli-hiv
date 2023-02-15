@@ -10,84 +10,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+    <style>
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
+    </style>
     <title>Data ART</title>
 </head>
 
 <body>
 
-    <h4 style="margin-left: 10px">Data Pasien ART</h4>
-    <table border="1" style="width: 90%; margin: 10px">
-        <tr>
-            <td>No. Registrasi Nasional</td>
-            <td>{{ $biodata->no_reg_nas }}</td>
-        </tr>
-        <tr>
-            <td>Tanggal Mulai ART</td>
-            <td>{{ $biodata->tgl_kunjungan }}</td>
-        </tr>
-        <tr>
-            <td>Nama</td>
-            <td>{{ $biodata->name }}</td>
-        </tr>
-        <tr>
-            <td>Umur</td>
-            <td>{{ $umur }}</td>
-        </tr>
-        <tr>
-            <td>Jenis Kelamin</td>
-            <td>{{ $biodata->jk }}</td>
-        </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>{{ $biodata->alamat }}</td>
-        </tr>
-        <tr>
-            <td>Hamil / Tidak</td>
-            <td>{{ $biodata->hamil }}</td>
-        </tr>
-        <tr>
-            <td>Nomor Telpon</td>
-            <td>{{ $biodata->no_telp }}</td>
-        </tr>
-    </table>
-
-    <h4 style="margin-left: 10px">Data ART / Bulan</h4>
-    <table border="1" style="width: 90%; margin: 10px">
-        <tr>
-            <td>Periode/Bulan Laporan</td>
-            <td colspan="3">{{ date('M') }}</td>
-        </tr>
-        <tr>
-            <td>Nomor Registrasi Nasional</td>
-            <td colspan="3">{{ $biodata->no_reg_nas }}</td>
-        </tr>
-        <tr>
-            <td>Nama</td>
-            <td colspan="3">{{ $biodata->name }}</td>
-        </tr>
-        <tr>
-            <td>Status Fungsional</td>
-            <td>Kerja</td>
-            <td>Ambulatori</td>
-            <td>Baring</td>
-        </tr>
-        <tr>
-            <td>Berat Badan</td>
-            <td colspan="3">{{ $biodata->name }}</td>
-        </tr>
-        <tr>
-            <td>Nilai CD4</td>
-            <td colspan="3">{{ $biodata->cd4 }}</td>
-        </tr>
-        <tr>
-            <td>IMS</td>
-            <td colspan="3">{{ $biodata->ims }}</td>
-        </tr>
-        <tr>
-            <td>ADHERENC</td>
-            <td colspan="3">{{ $adher }} %</td>
-        </tr>
-    </table>
+    <div class="container d-flex justify-content-center mt-5">
+        <table cellspacing="7" border="1">
+            <tr>
+                <td>No. Registrasi Nasional</td>
+                <td>Tanggal Mulai</td>
+                <td>Nama</td>
+                <td>NIK</td>
+                <td>Umur</td>
+                <td>JK</td>
+                <td>Alamat</td>
+                <td>Kehamilan</td>
+                <td>Telp.</td>
+                <td>Fungsional</td>
+                <td>Berat Badan</td>
+                <td>CD4</td>
+                <td>IMS</td>
+                <td>ADHERENC</td>
+            </tr>
+            @foreach ($biodata as $item)
+                <tr>
+                    <td>{{ $item->no_reg_nas }}</td>
+                    <td>{{ $item->tgl_kunjungan }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->nik }}</td>
+                    <td>{{ $item->no_reg_nas }}</td>
+                    <td>{{ $item->jk }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->hamil }}</td>
+                    <td>{{ $item->no_telp }}</td>
+                    <td>{{ $item->fungsional }}</td>
+                    <td>{{ $item->no_reg_nas }}</td>
+                    <td>{{ $item->cd4 }}</td>
+                    <td>{{ $item->ims }}</td>
+                    <td>{{ $item->no_reg_nas }}</td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -96,7 +67,22 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
     <script>
-        // window.print();
+        var css = '@page { size: landscape; }',
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+
+        style.type = 'text/css';
+        style.media = 'print';
+
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
+
+        window.print();
     </script>
 </body>
 
