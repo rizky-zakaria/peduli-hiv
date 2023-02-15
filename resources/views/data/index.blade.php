@@ -22,18 +22,18 @@
                                 <div class="col-10">
                                     <select name="periode" id="periode" class="form-control">
                                         <option disabled selected>Pilih Periode</option>
-                                        <option value="Jan">Januari</option>
-                                        <option value="Feb">Februari</option>
-                                        <option value="Mar">Maret</option>
-                                        <option value="Apr">April</option>
+                                        <option value="Januari">Januari</option>
+                                        <option value="Februari">Februari</option>
+                                        <option value="Maret">Maret</option>
+                                        <option value="April">April</option>
                                         <option value="Mei">Mei</option>
-                                        <option value="Jun">Juni</option>
-                                        <option value="Jul">Juli</option>
-                                        <option value="Agt">Agustus</option>
-                                        <option value="Sep">September</option>
-                                        <option value="Okt">Oktober</option>
-                                        <option value="Nov">November</option>
-                                        <option value="Des">Desember</option>
+                                        <option value="Juni">Juni</option>
+                                        <option value="Juli">Juli</option>
+                                        <option value="Agustus">Agustus</option>
+                                        <option value="September">September</option>
+                                        <option value="Oktober">Oktober</option>
+                                        <option value="November">November</option>
+                                        <option value="Desember">Desember</option>
                                     </select>
                                 </div>
                                 <div class="col-2">

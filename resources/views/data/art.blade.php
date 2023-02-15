@@ -54,7 +54,7 @@
                     <td>{{ $item->no_reg_nas }}</td>
                     <td>{{ $item->cd4 }}</td>
                     <td>{{ $item->ims }}</td>
-                    <td>{{ $item->no_reg_nas }}</td>
+                    <td>{{ }}</td>
                 </tr>
             @endforeach
         </table>
