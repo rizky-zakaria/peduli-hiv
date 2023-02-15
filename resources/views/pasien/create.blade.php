@@ -64,6 +64,13 @@
                                             name="password" required>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="bb">Berat Badan</label>
+                                        <input type="number" class="form-control" id="bb" placeholder=""
+                                            name="bb" required>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">

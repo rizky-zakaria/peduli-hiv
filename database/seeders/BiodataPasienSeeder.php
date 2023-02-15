@@ -32,7 +32,8 @@ class BiodataPasienSeeder extends Seeder
             'hamil' => 'TIDAK',
             'cd4' => '90ml',
             'ims' => 'Kelamin',
-            'fungsional' => 'Kerja'
+            'fungsional' => 'Kerja',
+            'bb' => '70'
         ]);
     }
 }

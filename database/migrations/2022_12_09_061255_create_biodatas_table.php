@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('cd4');
             $table->string('ims');
             $table->string('fungsional');
+            $table->string('bb');
         });
     }
 
