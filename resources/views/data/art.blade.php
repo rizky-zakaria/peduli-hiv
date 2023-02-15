@@ -51,7 +51,7 @@
                     <td>{{ $item->hamil }}</td>
                     <td>{{ $item->no_telp }}</td>
                     <td>{{ $item->fungsional }}</td>
-                    <td>{{ $item->bb }}</td>
+                    <td>{{ $item->bb }}kg</td>
                     <td>{{ $item->cd4 }}</td>
                     <td>{{ $item->ims }}</td>
                     <td>{{ ($item->konsumsi * 100) / 30 }}</td>
