@@ -85,6 +85,7 @@ class ArtController extends Controller
                 ->where('clusters.faskes_id', Auth::user()->id)
                 ->where('konsumsi_obats.periode', $request->periode)
                 ->get();
+            dd($biodata);
             // $birthDate = new DateTime($biodata->tgl_lahir);
             // $today = new DateTime("today");
             // if ($birthDate > $today) {
