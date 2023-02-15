@@ -54,7 +54,7 @@
                     <td>{{ $item->bb }}kg</td>
                     <td>{{ $item->cd4 }}</td>
                     <td>{{ $item->ims }}</td>
-                    <td>{{ ($item->konsumsi * 100) / ($item->terlewati + $item->konsumsi) }}</td>
+                    <td>{{ number_format(($item->konsumsi * 100) / ($item->terlewati + $item->konsumsi), 2) }}</td>
                 </tr>
             @endforeach
         </table>
