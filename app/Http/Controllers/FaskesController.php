@@ -40,15 +40,16 @@ class FaskesController extends Controller
         $this->validate($request, [
             'name' => 'required|min:5',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $faskes = new User();
         $faskes->name = $request->name;
-        $faskes->email = $request->email;   
+        $faskes->email = $request->email;
         $faskes->password = Hash::make($request->password);
         $faskes->role = 'faskes';
-        
+        $faskes->alamat = $request->alamat;
+
         $faskes->save();
 
         return redirect()->route('faskes.index');

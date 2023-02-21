@@ -28,7 +28,6 @@ class BiodataPasienSeeder extends Seeder
             'jk' => 'pria',
             'pekerjaan' => 'Dosen',
             'pendidikan' => 'S2',
-            'alamat' => 'Jln. Kh. Adam Zakaria',
             'hamil' => 'TIDAK',
             'fungsional' => 'Kerja'
         ]);

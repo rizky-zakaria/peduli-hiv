@@ -11,7 +11,7 @@
             <div class="section-body">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h4>Konsumsi Obat</h4>
+                        <h4>Kondisi Kesehatan</h4>
                         <a href="{{ route('kesehatan.printAll') }}" class="btn btn-warning"><i class="fas fa-print"></i>
                             Print Semua Data</a>
                     </div>

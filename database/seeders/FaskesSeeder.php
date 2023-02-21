@@ -20,7 +20,8 @@ class FaskesSeeder extends Seeder
             'name' => 'Rizky Zakaria',
             'email' => 'rizky.zakaria78@gmail.com',
             'password' => Hash::make('123'),
-            'role' => 'faskes'
+            'role' => 'faskes',
+            'alamat' => 'Jln. Kenangan No. 1, Kota Gorontalo'
         ]);
     }
 }

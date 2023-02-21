@@ -11,17 +11,70 @@
                 </div>
             </div>
             <div class="section-body">
+                {{-- <div class="card"> --}}
+                {{-- batas --}}
+
                 <div class="card">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item  active">
-                            <a class="nav-link" data-toggle="tab" href="#obat">Obat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#distribusi">Distribusi</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="obat" class="tab-pane fade in active">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-pasien"
+                                type="button" role="tab" aria-controls="nav-home" aria-selected="true">Daftar
+                                Distribusi Obat</button>
+                            <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-obat"
+                                type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Obat-obatan</button>
+                            <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-distribusi"
+                                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Distribusi
+                                Obat</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-pasien" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="card-header">
+                                Daftar Distribusi Obat
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Pasien</th>
+                                            <th>Obat</th>
+                                            <th>Jenis Obat</th>
+                                            <th>Jumlah</th>
+                                            <th>Dosis</th>
+                                            <th>Waktu Minum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($distribusi as $obat)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $obat->name }}</td>
+                                                <td>{{ $obat->nama }}</td>
+                                                <td>{{ $obat->jenis }}</td>
+                                                <td>{{ $obat->jumlah }}</td>
+                                                <td>{{ $obat->dosis }}</td>
+                                                <td>{{ $obat->waktu }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Pasien</th>
+                                            <th>Obat</th>
+                                            <th>Jenis Obat</th>
+                                            <th>Jumlah</th>
+                                            <th>Dosis</th>
+                                            <th>Waktu Minum</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-obat" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="card-header d-flex justify-content-between">
                                 <h4>Obat - Obatan</h4>
                                 @if (Auth::user()->role === 'faskes')
@@ -72,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="distribusi" class="tab-pane fade">
+                        <div class="tab-pane fade show" id="nav-distribusi" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="card-header d-flex justify-content-between">
                                 <h4>Distribusi Obat</h4>
                                 <div class="row">
@@ -125,6 +178,10 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- end batas --}}
+
+                {{-- </div> --}}
             </div>
         </section>
     </div>

@@ -74,7 +74,8 @@ class PasienController extends Controller
             Kondisi::create([
                 'pasien_id' => $request->id,
                 'cd4' => $request->cd4,
-                'periode' => $request->periode
+                'periode' => $request->periode,
+                'ims' => $request->ims
             ]);
         }
 
@@ -94,6 +95,7 @@ class PasienController extends Controller
         $pasien->email = $request->email;
         $pasien->password = Hash::make($request->password);
         $pasien->role = 'pasien';
+        $pasien->alamat = $request->alamat;
         $pasien->save();
 
         $biodata = Biodata::create([
@@ -108,7 +110,6 @@ class PasienController extends Controller
             'jk' => $request->jk,
             'pekerjaan' => $request->pekerjaan,
             'pendidikan' => $request->pendidikan,
-            'alamat' => $request->alamat,
             'hamil' => $request->hamil,
             'fungsional' => $request->fungsional,
             'jenis' => $request->jenis

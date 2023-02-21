@@ -9,7 +9,7 @@ class Kondisi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pasien_id', 'cd4', 'periode'];
+    protected $fillable = ['pasien_id', 'cd4', 'periode', 'ims'];
 
     public function pasien()
     {

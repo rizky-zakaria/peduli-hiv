@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('jk');
             $table->string('pekerjaan');
             $table->string('pendidikan');
-            $table->text('alamat');
             $table->string('hamil');
             $table->string('fungsional');
         });

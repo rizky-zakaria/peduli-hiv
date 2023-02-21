@@ -16,16 +16,16 @@
             margin: 0mm;
         }
     </style>
-    <title>Data ART</title>
+    <title>Data Pasien</title>
 </head>
 
 <body>
 
     <div class="container d-flex justify-content-center mt-5">
         <span class="text-center">
-            <h3>Laporan Bulan <br> Perawatan HIV & ART</h3>
-            <p>{{ Auth::user()->name }} <br>
-                Alamat : {{ Auth::user()->alamat }}</p>
+            <h3>Laporan Pasien HIV-AIDS</h3>
+            <p>{{ $faskes->name }} <br>
+                Alamat : {{ $faskes->alamat }}</p>
         </span>
     </div>
     <div class="container d-flex justify-content-center mt-1">
@@ -34,30 +34,30 @@
                 <td>No. Regis Nasional</td>
                 <td>Nama</td>
                 <td>NIK</td>
-                <td>Umur</td>
+                <td>Diagnosa</td>
+                <td>Tgl Lahir</td>
                 <td>JK</td>
                 <td>Alamat</td>
                 <td>Kehamilan</td>
                 <td>Telp.</td>
                 <td>Fungsional</td>
-                <td>CD4</td>
-                <td>IMS</td>
-                <td>ADHERENC</td>
+                <td>Pendidikan</td>
+                <td>Pekerjaan</td>
             </tr>
             @foreach ($biodata as $item)
                 <tr>
                     <td>{{ $item->no_reg_nas }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->nik }}</td>
-                    <td>{{ $item->no_reg_nas }}</td>
+                    <td>{{ $item->jenis }}</td>
+                    <td>{{ $item->tgl_lahir }}</td>
                     <td>{{ $item->jk }}</td>
                     <td>{{ $item->alamat }}</td>
                     <td>{{ $item->hamil }}</td>
                     <td>{{ $item->no_telp }}</td>
                     <td>{{ $item->fungsional }}</td>
-                    <td>{{ $item->cd4 }}</td>
-                    <td>{{ $item->ims }}</td>
-                    <td>{{ number_format(($item->konsumsi * 100) / ($item->terlewati + $item->konsumsi), 2) }}</td>
+                    <td>{{ $item->pendidikan }}</td>
+                    <td>{{ $item->pekerjaan }}</td>
                 </tr>
             @endforeach
         </table>

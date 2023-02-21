@@ -24,7 +24,10 @@ class ObatController extends Controller
         $data = Obat::all();
         $obat = Obat::all();
         $jumlah = count($obat);
-        return view('obat.index', compact('data', 'obat', 'jumlah'));
+        $distribusi = DistribusiObat::join('users', 'users.id', '=', 'distribusi_obats.pasien_id')
+            ->join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
+            ->get();
+        return view('obat.index', compact('data', 'obat', 'jumlah', 'distribusi'));
     }
 
     public function ambilObat(Request $request)

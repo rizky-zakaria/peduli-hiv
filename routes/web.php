@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('dikes.home');
         Route::get('data-master/art', [ArtController::class, 'index'])->name('art-dikes.index');
         Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art-dikes.post');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('data.pasien');
+        Route::post('data-master/get-data-pasien', [ArtController::class, 'getDataPasien'])->name('data.post-pasien');
     });
     Route::group(['middleware' => ['role:faskes'], 'prefix' => 'faskes'], function () {
         Route::get('home', [HomeController::class, 'faskes'])->name('faskes.home');

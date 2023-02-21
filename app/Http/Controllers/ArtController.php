@@ -101,4 +101,23 @@ class ArtController extends Controller
             }
         }
     }
+
+    public function pasien()
+    {
+        $data = User::where('role', 'faskes')->get();
+        return view('pasien.pasien', compact('data'));
+    }
+
+    public function getDataPasien(Request $request)
+    {
+        $biodata = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
+            ->join('clusters', 'clusters.pasien_id', '=', 'users.id')
+            ->where('clusters.faskes_id', $request->id)
+            ->where('users.role', 'pasien')
+            ->get();
+
+        $faskes = User::find($request->id);
+        // dd($faskes);
+        return view('data.pasien', compact('biodata', 'faskes'));
+    }
 }

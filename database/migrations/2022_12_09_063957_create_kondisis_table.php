@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('pasien_id');
             $table->text('cd4');
             $table->string('periode');
+            $table->string('ims');
             $table->timestamps();
         });
     }

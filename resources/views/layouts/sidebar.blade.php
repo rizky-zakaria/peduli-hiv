@@ -2,7 +2,8 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="index.html">
-                <img src="{{ asset('stisla/dist/assets/img/hiv.png') }}" alt="" width="50">
+                <img src="{{ asset('stisla/dist/assets/img/hiv.png') }}" alt="" width="50"><br>
+                <h6>SIMKES HIV-AIDS</h6>
             </a>
         </div>
         {{-- <div class="sidebar-brand sidebar-brand-sm">
@@ -29,6 +30,11 @@
                 <li class="{{ request()->is('dikes/data-master/art') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('art-dikes.index') }}"><i class="fas fa-chart-bar"></i>
                         <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('dikes/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('data.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
                     </a>
                 </li>
                 {{-- <li class="{{ request()->is('dikes/pasien') ? 'active' : '' }}">

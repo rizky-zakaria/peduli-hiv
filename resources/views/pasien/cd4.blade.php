@@ -20,9 +20,15 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="fungsional">Nilai CD4</label>
+                                        <label for="cd4">Nilai CD4</label>
                                         <input type="hidden" name="id" value="{{ $id }}">
                                         <input type="text" name="cd4" id="cd4" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="ims">Infeksi Menular Seksual</label>
+                                        <input type="text" name="ims" id="ims" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col">
