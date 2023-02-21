@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('pasien_id');
             $table->string('nik');
+            $table->string('jenis');
             $table->integer('tahun_lapor');
             $table->string('bulan_lapor');
             $table->string('tgl_kunjungan');
-            $table->string('no_rekamedik');
             $table->string('no_reg_nas');
             $table->string('no_telp');
             $table->string('tgl_lahir');
@@ -29,10 +29,7 @@ return new class extends Migration
             $table->string('pendidikan');
             $table->text('alamat');
             $table->string('hamil');
-            $table->string('cd4');
-            $table->string('ims');
             $table->string('fungsional');
-            $table->string('bb');
         });
     }
 

@@ -63,6 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('perjalanan', PerjalananController::class);
         Route::get('data-master/art', [ArtController::class, 'index'])->name('art.index');
         Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art.post');
+        Route::get('create/cd4/{id}', [PasienController::class, 'cd4create'])->name('cd4.create');
+        Route::post('store/cd4', [PasienController::class, 'cd4store'])->name('cd4.store');
     });
     Route::group(['middleware' => ['role:pasien'], 'prefix' => 'pasien'], function () {
         Route::get('home', [HomeController::class, 'pasien'])->name('pasien.home');

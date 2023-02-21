@@ -28,11 +28,6 @@
                                     name="nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="stok">Stok</label>
-                                <input type="number" class="form-control number" id="stok" placeholder="Stok Obat"
-                                    name="stok" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="jenis">Jenis</label>
                                 <input type="text" class="form-control" id="jenis" placeholder="Jenis Obat"
                                     name="jenis" required>

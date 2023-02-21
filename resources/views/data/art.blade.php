@@ -22,7 +22,7 @@
 <body>
 
     <div class="container d-flex justify-content-center mt-5">
-        <table cellspacing="7" border="1" class="text-center">
+        <table cellspacing="7" border="1" class="text-center" style="width: 100%">
             <tr>
                 <td>No. Regis Nasional</td>
                 <td>Awal</td>
@@ -34,7 +34,6 @@
                 <td>Kehamilan</td>
                 <td>Telp.</td>
                 <td>Fungsional</td>
-                <td>BB</td>
                 <td>CD4</td>
                 <td>IMS</td>
                 <td>ADHERENC</td>
@@ -51,7 +50,6 @@
                     <td>{{ $item->hamil }}</td>
                     <td>{{ $item->no_telp }}</td>
                     <td>{{ $item->fungsional }}</td>
-                    <td>{{ $item->bb }}kg</td>
                     <td>{{ $item->cd4 }}</td>
                     <td>{{ $item->ims }}</td>
                     <td>{{ number_format(($item->konsumsi * 100) / ($item->terlewati + $item->konsumsi), 2) }}</td>

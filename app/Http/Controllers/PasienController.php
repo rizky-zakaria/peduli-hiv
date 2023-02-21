@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Biodata;
 use App\Models\Cluster;
+use App\Models\Kondisi;
 use App\Models\KonsumsiObat;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Console\Command\DumpCompletionCommand;
 
 class PasienController extends Controller
 {
@@ -56,6 +58,29 @@ class PasienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function cd4create($id)
+    {
+        return view('pasien.cd4', compact('id'));
+    }
+
+    public function cd4store(Request $request)
+    {
+        $cek = Kondisi::where('pasien_id', $request->id)->where('periode', $request->periode)->first();
+        if ($cek) {
+            toast('Gagal menambahkan data cd4', 'error');
+            return redirect()->back();
+        } else {
+            Kondisi::create([
+                'pasien_id' => $request->id,
+                'cd4' => $request->cd4,
+                'periode' => $request->periode
+            ]);
+        }
+
+        return redirect(route('pasien.index'));
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -77,7 +102,6 @@ class PasienController extends Controller
             'tahun_lapor' => date('Y'),
             'bulan_lapor' => date('M'),
             'tgl_kunjungan' => date('d-m-Y'),
-            'no_rekamedik' => $request->norek,
             'no_reg_nas' => $request->noreg,
             'no_telp' => $request->notelp,
             'tgl_lahir' => $request->tgl_lahir,
@@ -86,10 +110,8 @@ class PasienController extends Controller
             'pendidikan' => $request->pendidikan,
             'alamat' => $request->alamat,
             'hamil' => $request->hamil,
-            'cd4' => $request->cd4,
-            'ims' => $request->ims,
             'fungsional' => $request->fungsional,
-            'bb' => $request->bb
+            'jenis' => $request->jenis
         ]);
 
         Cluster::create([

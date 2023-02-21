@@ -39,7 +39,7 @@
                                             <td>{{ $pasien->role }}</td>
                                             <td>
                                                 <form action="{{ route('pasien.destroy', $pasien->id) }}" method="POST">
-                                                    <a class="btn btn-warning"
+                                                    <a class="btn btn-success"
                                                         href="{{ route('pasien.edit', $pasien->id) }}"><i
                                                             class="fa fa-edit"></i> Edit</a>
                                                     @csrf
@@ -47,6 +47,8 @@
                                                     <button type="submit" class="btn btn-danger"><i
                                                             class="fa fa-trash"></i> Hapus</button>
                                                 </form>
+                                                <a href="{{ route('cd4.create', $pasien->id) }}"
+                                                    class="btn btn-warning mt-1"><i class="fas fa-chart-bar"></i> ART</a>
                                                 {{-- <a href="{{ url('faskes/data-master/art/' . $pasien->id) }}"
                                                     class="btn btn-primary"><i class="fas fa-chart-bar">
                                                     </i> Data ART</a> --}}

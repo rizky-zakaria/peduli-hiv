@@ -25,13 +25,6 @@
                                             placeholder="Nomor Registrasi" name="noreg" required>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="norek">No. Rekamedis</label>
-                                        <input type="text" class="form-control" id="norek"
-                                            placeholder="Nomor Rekamedis" name="norek" required>
-                                    </div>
-                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
@@ -64,29 +57,25 @@
                                             name="password" required>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-row">
                                 <div class="col">
+                                    <div class="form-group">
+                                        <label for="jenis">Diagnosa</label>
+                                        <select name="jenis" id="jenis" class="form-control">
+                                            <option selected disabled>Pilih...</option>
+                                            <option value="HIV">HIV</option>
+                                            <option value="AIDS">AIDS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- <div class="col">
                                     <div class="form-group">
                                         <label for="bb">Berat Badan</label>
                                         <input type="number" class="form-control" id="bb" placeholder=""
                                             name="bb" required>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="ims">Infeksi Menular Seksual</label>
-                                        <input type="text" class="form-control" id="ims"
-                                            placeholder="Infeksi Menular Seksual" name="ims" required>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="cd4">Nilai CD4</label>
-                                        <input type="text" class="form-control" id="cd4" placeholder="Nilai CD4"
-                                            name="cd4" required>
-                                    </div>
-                                </div>
+                                </div> --}}
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="fungsional">Status Fungsional</label>

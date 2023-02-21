@@ -16,12 +16,8 @@ return new class extends Migration
         Schema::create('kondisis', function (Blueprint $table) {
             $table->id();
             $table->integer('pasien_id');
-            $table->string('tgl_konfirmasi');
-            $table->string('tgl_pra_art');
-            $table->string('tgl_art');
-            $table->text('who');
             $table->text('cd4');
-            $table->text('tlc');
+            $table->string('periode');
             $table->timestamps();
         });
     }

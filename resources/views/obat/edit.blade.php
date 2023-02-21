@@ -29,11 +29,6 @@
                                     value="{{ old('nama', $obat->nama) }}" name="nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="stok">Stok</label>
-                                <input type="number" class="form-control number" id="stok" placeholder="Stok Obat"
-                                    value="{{ old('stok', $obat->stok) }}" name="stok" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="jenis">Jenis</label>
                                 <input type="text" class="form-control" id="jenis" placeholder="Jenis"
                                     value="{{ old('jenis', $obat->jenis) }}" name="jenis" required>

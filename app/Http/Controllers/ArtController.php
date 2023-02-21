@@ -47,12 +47,12 @@ class ArtController extends Controller
 
     public function getArt(Request $request)
     {
-        // dd($request);
         if (Auth::user()->role === 'dikes') {
             $biodata = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
                 ->join('clusters', 'clusters.pasien_id', '=', 'users.id')
                 ->join('konsumsi_obats', 'konsumsi_obats.pasien_id', '=', 'users.id')
-                ->where('konsumsi_obats.periode', $request->periode)
+                ->join('kondisis', 'kondisis.pasien_id', '=', 'users.id')
+                ->where('kondisis.periode', $request->periode)
                 ->get();
             $periode = $request->periode;
             if ($biodata) {
@@ -65,8 +65,9 @@ class ArtController extends Controller
             $biodata = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
                 ->join('clusters', 'clusters.pasien_id', '=', 'users.id')
                 ->join('konsumsi_obats', 'konsumsi_obats.pasien_id', '=', 'users.id')
+                ->join('kondisis', 'kondisis.pasien_id', '=', 'users.id')
                 ->where('clusters.faskes_id', Auth::user()->id)
-                ->where('konsumsi_obats.periode', $request->periode)
+                ->where('kondisis.periode', $request->periode)
                 ->get();
             // dd($biodata);
             // $birthDate = new DateTime($biodata->tgl_lahir);

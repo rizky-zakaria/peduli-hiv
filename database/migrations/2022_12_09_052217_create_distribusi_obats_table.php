@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('obat_id');
             $table->integer('jumlah');
             $table->string('dosis');
+            $table->text('waktu');
             $table->timestamps();
         });
     }

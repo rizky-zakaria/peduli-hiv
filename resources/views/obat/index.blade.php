@@ -35,7 +35,6 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Obat</th>
-                                                <th>Stok</th>
                                                 <th>Jenis</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -45,7 +44,6 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $obat->nama }}</td>
-                                                    <td>{{ $obat->stok }}</td>
                                                     <td>{{ $obat->jenis }}</td>
                                                     <td>
                                                         <form action="{{ route('obat.destroy', $obat->id) }}"
@@ -66,7 +64,6 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Obat</th>
-                                                <th>Stok</th>
                                                 <th>Jenis</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -81,7 +78,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="nik"
-                                            placeholder="nama pasien..">
+                                            placeholder="nomor registrasi">
                                     </div>
                                     <div class="col-md-2">
                                         <button type="button" class="btn btn-success" id="btnCari" onclick="cari()"><i
@@ -153,6 +150,7 @@
                         <input type="text" class="form-control" id="namePasien" value="` + data.name + `" disabled>
                         <input type="hidden" name="userId" class="form-control" id="idPasien" value="` + data.id + `">
                          <input type="text" name="dosis" class="form-control mt-2" id="dosis" placeholder="dosis obat" required>
+                         <textarea name="waktu" class="form-control mt-2">Keterangan Waktu Minum</textarea>
                         <button type="submit" class="btn btn-primary float-left mt-3" id="button">Konfirmasi</button>
                         `
                         );

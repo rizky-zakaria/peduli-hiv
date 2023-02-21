@@ -21,7 +21,7 @@ class BiodataPasienSeeder extends Seeder
             'tahun_lapor' => date('Y'),
             'bulan_lapor' => date('M'),
             'tgl_kunjungan' => date('d-m-Y'),
-            'no_rekamedik' => 'NO1902RI',
+            'jenis' => 'hiv',
             'no_reg_nas' => "NO1902RI",
             'no_telp' => '082134567890',
             'tgl_lahir' => '2003-01-13',
@@ -30,10 +30,7 @@ class BiodataPasienSeeder extends Seeder
             'pendidikan' => 'S2',
             'alamat' => 'Jln. Kh. Adam Zakaria',
             'hamil' => 'TIDAK',
-            'cd4' => '90ml',
-            'ims' => 'Kelamin',
-            'fungsional' => 'Kerja',
-            'bb' => '70'
+            'fungsional' => 'Kerja'
         ]);
     }
 }

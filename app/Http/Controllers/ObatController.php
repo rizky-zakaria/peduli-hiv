@@ -31,27 +31,20 @@ class ObatController extends Controller
     {
         $pasien = User::find($request->userId);
         for ($i = 0; $i < count($request->obat); $i++) {
-            $obat = Obat::find($request->obat[$i]);
-            if ($obat->stok > $request->banyak[$i]) {
-                $obat->stok = $obat->stok - $request->banyak[$i];
-                $obat->update();
-
-                DistribusiObat::create([
-                    'pasien_id' => $request->userId,
-                    'faskes_id' => Auth::user()->id,
-                    'obat_id' => $request->obat[$i],
-                    'dosis' => $request->dosis,
-                    'jumlah' => $request->banyak[$i]
-                ]);
-            } else {
-                toast('Persediaan obat tidak cukup', 'error');
-                return redirect(url('faskes/obat'));
-            }
+            DistribusiObat::create([
+                'pasien_id' => $request->userId,
+                'faskes_id' => Auth::user()->id,
+                'obat_id' => $request->obat[$i],
+                'dosis' => $request->dosis,
+                'jumlah' => $request->banyak[$i],
+                'waktu' => $request->waktu
+            ]);
         }
 
         HistoriObat::create([
             'history' => Auth::user()->name . " memberikan obat kepada pasien " . $pasien->name . " pada tanggal " . date('d M Y')
         ]);
+        toast('Berhasil Melakukan Transaksi', 'success');
         return redirect(url('faskes/obat'));
     }
 
@@ -77,12 +70,10 @@ class ObatController extends Controller
             'nama' => 'required|min:4',
             'kode' => 'required',
             'jenis' => 'required',
-            'stok' => 'required'
         ]);
 
         $obat = new Obat();
         $obat->nama = $request->nama;
-        $obat->stok = $request->stok;
         $obat->jenis = $request->jenis;
         $obat->kode = $request->kode;
 
@@ -124,13 +115,11 @@ class ObatController extends Controller
         $this->validate($request, [
             'nama' => 'required|min:4',
             'kode' => 'required',
-            'jenis' => 'required',
-            'stok' => 'required'
+            'jenis' => 'required'
         ]);
 
         $obat->update([
             'nama' => $request->nama,
-            'stok' => $request->stok,
             'jenis' => $request->jenis,
             'kode' => $request->kode,
         ]);
@@ -153,7 +142,7 @@ class ObatController extends Controller
     public function cari($nik)
     {
         $data = Biodata::join('users', 'users.id', '=', 'biodatas.pasien_id')
-            ->where('biodatas.nik', $nik)
+            ->where('biodatas.no_reg_nas', $nik)
             ->first();
         if (isset($data->nik)) {
             return response()->json($data);

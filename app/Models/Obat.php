@@ -12,7 +12,6 @@ class Obat extends Model
     protected $fillable = [
         'nama',
         'jenis',
-        'stok',
         'kode'
     ];
 }
