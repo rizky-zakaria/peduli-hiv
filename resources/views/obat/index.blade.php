@@ -157,7 +157,7 @@
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="obat" name="obat[]"
-                                                                        value="{{ $item->id }}" required>
+                                                                        value="{{ $item->id }}">
                                                                     <label class="form-check-label" for="gridCheck1">
                                                                         {{ $item->nama }}
                                                                     </label>
