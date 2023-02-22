@@ -165,7 +165,7 @@
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <input type="number" class="form-control"
-                                                                    placeholder="Banyak" name="banyak[]" required>
+                                                                    placeholder="Banyak" name="banyak[]">
                                                             </div>
                                                         </div>
                                                     @endforeach
