@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\KonsultasiController;
 use App\Http\Controllers\Api\LaporanKondisiController;
 use App\Http\Controllers\Api\LaporanKonsumsiController;
 use App\Http\Controllers\Api\LaporanPerjalananController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,4 @@ Route::post('laporan-perjalanan/id', [LaporanPerjalananController::class, 'getLa
 Route::post('laporan-perjalanan', [LaporanPerjalananController::class, 'postLapById']);
 Route::post('histori', [HistoriController::class, 'getHistoriById']);
 Route::post('get/alarm', [LaporanKonsumsiController::class, 'getAlarm']);
+Route::post('get/user', [UserController::class, 'getBiodata']);
