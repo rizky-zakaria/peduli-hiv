@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\DistribusiObat;
 use App\Models\Histori;
 use App\Models\KonsumsiObat;
 use Illuminate\Http\Request;
@@ -13,6 +14,24 @@ class LaporanKonsumsiController extends Controller
     {
         $id = $request->id;
         $data = KonsumsiObat::where('pasien_id', $id)->get();
+        if ($data) {
+            return response()->json([
+                'success' => true,
+                'message'    => 'Successfully',
+                'data'    => $data,
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message'    => 'Not Found',
+            ], 404);
+        }
+    }
+
+    public function getAlarm(Request $request)
+    {
+        $id = $request->id;
+        $data = DistribusiObat::where('pasien_id', $id)->first(['jam', 'menit']);
         if ($data) {
             return response()->json([
                 'success' => true,

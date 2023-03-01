@@ -44,3 +44,4 @@ Route::post('laporan-konsumsi', [LaporanKonsumsiController::class, 'postLapById'
 Route::post('laporan-perjalanan/id', [LaporanPerjalananController::class, 'getLapById']);
 Route::post('laporan-perjalanan', [LaporanPerjalananController::class, 'postLapById']);
 Route::post('histori', [HistoriController::class, 'getHistoriById']);
+Route::post('get/alarm', [LaporanKonsumsiController::class, 'getAlarm']);

@@ -40,7 +40,8 @@ class ObatController extends Controller
                 'obat_id' => $request->obat[$i],
                 'dosis' => $request->dosis,
                 'jumlah' => $request->banyak[$i],
-                'waktu' => $request->waktu
+                'jam' => $request->jam,
+                'menit' => $request->menit
             ]);
         }
 

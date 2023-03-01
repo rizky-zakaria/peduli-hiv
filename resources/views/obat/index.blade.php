@@ -56,7 +56,7 @@
                                                 <td>{{ $obat->jenis }}</td>
                                                 <td>{{ $obat->jumlah }}</td>
                                                 <td>{{ $obat->dosis }}</td>
-                                                <td>{{ $obat->waktu }}</td>
+                                                <td>{{ $obat->jam . ':' . $obat->menit }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -207,7 +207,16 @@
                         <input type="text" class="form-control" id="namePasien" value="` + data.name + `" disabled>
                         <input type="hidden" name="userId" class="form-control" id="idPasien" value="` + data.id + `">
                          <input type="text" name="dosis" class="form-control mt-2" id="dosis" placeholder="dosis obat" required>
-                         <textarea name="waktu" class="form-control mt-2">Keterangan Waktu Minum</textarea>
+                         <div class="row  mt-2">
+                            <div class="col">
+                                <label for="jam">Jam</label>
+                                 <input type="number" name="jam" id="jam" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="menit">Menit</label>
+                                <input type="number" name="menit" id="menit" class="form-control">
+                            </div>
+                        </div>    
                         <button type="submit" class="btn btn-primary float-left mt-3" id="button">Konfirmasi</button>
                         `
                         );
