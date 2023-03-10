@@ -151,8 +151,8 @@
                                                     <h4>Daftar Obat</h4>
                                                 </div>
                                                 <div class="card-body">
-                                                    @foreach ($data as $item)
-                                                        <div class="row mt-2">
+                                                    <div class="row mt-2">
+                                                        @foreach ($data as $item)
                                                             <div class="col-sm-6">
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox"
@@ -163,12 +163,12 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <input type="number" class="form-control"
-                                                                    placeholder="Banyak" name="banyak[]">
-                                                            </div>
+                                                        @endforeach
+                                                        <div class="col-sm-6">
+                                                            <input type="number" class="form-control"
+                                                                placeholder="Banyak" name="banyak">
                                                         </div>
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

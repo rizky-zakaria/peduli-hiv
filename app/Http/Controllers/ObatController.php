@@ -32,6 +32,7 @@ class ObatController extends Controller
 
     public function ambilObat(Request $request)
     {
+        // dd($request);
         $pasien = User::find($request->userId);
         for ($i = 0; $i < count($request->obat); $i++) {
             DistribusiObat::create([
@@ -39,7 +40,7 @@ class ObatController extends Controller
                 'faskes_id' => Auth::user()->id,
                 'obat_id' => $request->obat[$i],
                 'dosis' => $request->dosis,
-                'jumlah' => $request->banyak[$i],
+                'jumlah' => $request->banyak,
                 'jam' => $request->jam,
                 'menit' => $request->menit
             ]);
