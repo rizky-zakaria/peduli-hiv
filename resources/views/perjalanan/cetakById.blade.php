@@ -9,6 +9,15 @@
 </head>
 
 <body>
+    <center>
+        <div class="container d-flex justify-content-center mt-5">
+            <span class="text-center">
+                <h3>Laporan Perjalanan Pasien HIV-AIDS</h3>
+                <p>{{ $faskes->name }} <br>
+                    Alamat : {{ $faskes->alamat }}</p>
+            </span>
+        </div>
+    </center>
     <table>
         <tr>
             <td>Nama</td>
