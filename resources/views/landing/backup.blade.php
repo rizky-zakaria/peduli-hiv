@@ -127,20 +127,27 @@
                         </span>
                         <span style="size: 2em">
                             Distribusi HIV-AIDS berdasarkan Tahun Diagnosa <br>
-                            di Provinsi Gorontalo Tahun 2001 s/d {{ date('Y') }}
+                            di Provinsi Gorontalo Tahun 2001 s/d 2 Desember 2021
                         </span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">Tahun</th>
+                                    <th scope="col">Diagnosa</th>
                                     <th scope="col">Jumlah</th>
                                 </tr>
+                                {{-- <tr>
+                                    <th>HIV</th>
+                                    <th>AIDS</th>
+                                </tr> --}}
                             </thead>
                             <tbody>
                                 @foreach ($tahun as $item)
                                     <tr>
                                         <td>{{ $item->tahun_lapor }}</td>
-                                        <td>{{ $item->total }}</td>
+                                        <td>{{ $item->tahun_aids[0] }}</td>
+                                        <td>6</td>
+                                        <td>11</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -148,50 +155,138 @@
 
                         <span style="size: 2em">
                             Distribusi HIV-AIDS berdasarkan Pekerjaan <br>
-                            di Provinsi Gorontalo Tahun 2001 s/d {{ date('Y') }}
+                            di Provinsi Gorontalo Tahun 2001 s/d 2 Desember 2021
                         </span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Pekerjaan</th>
-                                    <th scope="col">Jumlah</th>
+                                    <th scope="col" rowspan="2">Pekerjaan</th>
+                                    <th scope="col" colspan="2">Diagnosa</th>
+                                    <th scope="col" rowspan="2">Jumlah</th>
+                                </tr>
+                                <tr>
+                                    <th>HIV</th>
+                                    <th>AIDS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pekerjaan as $item)
-                                    <tr>
-                                        <td>{{ $item->pekerjaan }}</td>
-                                        <td>{{ $item->total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td>Tidak Di Ketahui / Tiada</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Mekanik</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Bentor</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Pelayan RM / Kary. Toko</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Ojek</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Napi</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Mucikari</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Tata Rias</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Pelaut</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Pedagang</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>IRT</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr class="bg-primary text-light">
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="col-lg-6 d-flex flex-column justify-contents-center text-center" data-aos="fade-left">
                         <span>
                             Distribusi HIV-AIDS berdasarkan jenis kelamin <br>
-                            di Provinsi Gorontalo Tahun 2001 s/d {{ date('Y') }}
+                            di Provinsi Gorontalo Tahun 2001 s/d 2011
                         </span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Jenis Kelamin</th>
-                                    <th scope="col">Jumlah</th>
+                                    <th scope="col" rowspan="2">Jenis Kelamin</th>
+                                    <th scope="col" colspan="2">Diagnosa</th>
+                                    <th scope="col" rowspan="2">Jumlah</th>
+                                </tr>
+                                <tr>
+                                    <th>HIV</th>
+                                    <th>AIDS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($jk as $item)
-                                    <tr>
-                                        <td>{{ $item->jk }}</td>
-                                        <td>{{ $item->total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td>Pria</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Wanita</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr class="text-light bg-primary">
+                                    <td>Jumlah</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
                             </tbody>
                         </table>
 
                         <span>
                             Distribusi HIV-AIDS berdasarkan Kelompok Umur <br>
-                            di Provinsi Gorontalo Tahun 2001 s/d {{ date('Y') }}
+                            di Provinsi Gorontalo Tahun 2001 s/d 2011
                         </span>
                         <table class="table table-bordered">
                             <thead>
@@ -309,38 +404,138 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Status Pengobatan</th>
-                                    <th scope="col">Jumlah</th>
+                                    <th scope="col" rowspan="2">Status Pengobatan</th>
+                                    <th scope="col" colspan="2">Diagnosa</th>
+                                    <th scope="col" rowspan="2">Jumlah</th>
+                                </tr>
+                                <tr>
+                                    <th>HIV</th>
+                                    <th>AIDS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($fungsional as $item)
-                                    <tr>
-                                        <td>{{ $item->fungsional }}</td>
-                                        <td>{{ $item->total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td>Belum ARV</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>ARV</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Meninggal</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Pindah</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Drop Out</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Lost Contact</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Tidak Di Ketaui</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr class="text-light bg-primary">
+                                    <td>Jumlah</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
                             </tbody>
                         </table>
 
                         <span>
-                            Distribusi HIV-AIDS berdasarkan Jenis <br>
+                            Distribusi HIV-AIDS berdasarkan Cara Penularan <br>
                             di Provinsi Gorontalo Tahun 2001 s/d 2011
                         </span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Jenis</th>
-                                    <th scope="col">Jumlah</th>
+                                    <th scope="col" rowspan="2">Cara Penularan</th>
+                                    <th scope="col" colspan="2">Diagnosa</th>
+                                    <th scope="col" rowspan="2">Jumlah</th>
+                                </tr>
+                                <tr>
+                                    <th>HIV</th>
+                                    <th>AIDS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($jenis as $item)
-                                    <tr>
-                                        <td>{{ $item->jenis }}</td>
-                                        <td>{{ $item->total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td>Hubungan Seks/Heteroseks</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>GWL (Gay, Waria, Lesbian)</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Biseksual</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>IDU's</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Ibu Ke Anak</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Tranfusi Darah</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Jarum Tato</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Tidak Di Ketahui</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr class="text-light bg-primary">
+                                    <td>Jumlah</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>11</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
