@@ -39,7 +39,7 @@ class LaporanPerjalananController extends Controller
 
         Histori::create([
             'user_id' => $request->id,
-            'histori' => 'Anda berhasil melakukan pengiriman data perjalanan anda dengan perincian: Tujuan = ' . $request->tujuan . ', dalam agenda = ' . $request->keterangan . ', dengan waktu keberangkatan = ' . $request->tgl_kunjungan . '-' . $request->tgl_pulang . ' pada tanggal ' . date('d-m-Y')
+            'histori' => 'Anda berhasil melakukan pengiriman data perjalanan anda dengan perincian: Tujuan = ' . $request->keterangan . ', dalam agenda = ' . $request->tujuan . ', dengan waktu keberangkatan = ' . $request->tgl_kunjungan . '-' . $request->tgl_pulang . ' pada tanggal ' . date('d-m-Y')
         ]);
 
         if ($post) {
