@@ -10,6 +10,13 @@
 
 <body>
     <center>
+        <div class="container d-flex justify-content-center mt-5">
+            <span class="text-center">
+                <h3>Laporan Pasien HIV-AIDS</h3>
+                <p>{{ $faskes->name }} <br>
+                    Alamat : {{ $faskes->alamat }}</p>
+            </span>
+        </div>
         <table border="1" style="width: 100%">
             <thead>
                 <tr>

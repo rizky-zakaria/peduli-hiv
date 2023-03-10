@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KonsumsiObat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KonsumsiObatController extends Controller
 {
@@ -24,14 +25,17 @@ class KonsumsiObatController extends Controller
         $data = KonsumsiObat::join('users', 'users.id', '=', 'konsumsi_obats.pasien_id')
             ->where('users.id', $id)
             ->get();
+        $faskes = User::find(Auth::user()->id);
         $user = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')->where('users.id', $id)->first();
-        return view('konsumsi-obat.cetakById', compact('data', 'user'));
+        return view('konsumsi-obat.cetakById', compact('data', 'user', 'faskes'));
     }
 
     public function cetakAll()
     {
+
+        $faskes = User::find(Auth::user()->id);
         $data = KonsumsiObat::join('users', 'users.id', '=', 'konsumsi_obats.pasien_id')->get();
-        return view('konsumsi-obat.cetakAll', compact('data'));
+        return view('konsumsi-obat.cetakAll', compact('data', 'faskes'));
     }
 
     /**
