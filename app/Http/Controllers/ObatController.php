@@ -6,6 +6,7 @@ use App\Models\Biodata;
 use App\Models\DistribusiObat;
 use App\Models\Dosis;
 use App\Models\HistoriObat;
+use App\Models\NotifDistribusi;
 use App\Models\Obat;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -50,6 +51,10 @@ class ObatController extends Controller
             }
             HistoriObat::create([
                 'history' => Auth::user()->name . " memberikan obat kepada pasien " . $pasien->name . " pada tanggal " . date('d M Y')
+            ]);
+            NotifDistribusi::create([
+                'notif' => 'Obat anda telah di distribusikan dengan rincian dosis konsumsi obat = ' . $request->dosis . ', silahkan ambil pada fasilitas kesehatan pada tanggal ' . date('d-m-Y'),
+                'user_id' => $request->userId
             ]);
             toast('Berhasil Melakukan Transaksi', 'success');
         }

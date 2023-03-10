@@ -47,3 +47,4 @@ Route::post('laporan-perjalanan', [LaporanPerjalananController::class, 'postLapB
 Route::post('histori', [HistoriController::class, 'getHistoriById']);
 Route::post('get/alarm', [LaporanKonsumsiController::class, 'getAlarm']);
 Route::post('get/user', [UserController::class, 'getBiodata']);
+Route::post('get-notif', [HistoriController::class, 'getNotif']);

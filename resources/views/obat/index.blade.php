@@ -216,11 +216,11 @@
                          <div class="row  mt-2">
                             <div class="col">
                                 <label for="jam">Jam</label>
-                                 <input type="number" name="jam" id="jam" class="form-control">
+                                 <input type="text" name="jam" id="jam" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="menit">Menit</label>
-                                <input type="number" name="menit" id="menit" class="form-control">
+                                <input type="text" name="menit" id="menit" class="form-control">
                             </div>
                         </div>    
                         <button type="submit" class="btn btn-primary float-left mt-3" id="button">Konfirmasi</button>
