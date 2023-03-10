@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cluster;
 use App\Models\HistoriObat;
 use App\Models\Obat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -39,7 +41,11 @@ class HomeController extends Controller
         $faskes = count(User::where('role', 'faskes')->get());
         $obat = count(Obat::all());
         $jenis = count(Obat::all());
-        $pasien = count(User::where('role', 'fasien')->get());
+        $dataPas = Cluster::join('users', 'users.id', '=', 'clusters.pasien_id')
+            ->where('clusters.faskes_id', Auth::user()->id)
+            ->where('users.role', 'pasien')
+            ->get();
+        $pasien = count($dataPas);
         $historyObat = HistoriObat::limit(10)->get();
         return view('home.index', compact('faskes', 'obat', 'pasien', 'jenis', 'historyObat'));
     }

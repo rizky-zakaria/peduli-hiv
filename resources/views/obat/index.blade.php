@@ -45,6 +45,7 @@
                                             <th>Jumlah</th>
                                             <th>Dosis</th>
                                             <th>Waktu Minum</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,6 +58,10 @@
                                                 <td>{{ $obat->jumlah }}</td>
                                                 <td>{{ $obat->dosis }}</td>
                                                 <td>{{ $obat->jam . ':' . $obat->menit }}</td>
+                                                <td>
+                                                    <a href="{{ url('faskes/obat/delete-distribusi-obat/' . $obat->id) }}"
+                                                        class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -69,6 +74,7 @@
                                             <th>Jumlah</th>
                                             <th>Dosis</th>
                                             <th>Waktu Minum</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -159,7 +165,7 @@
                                                                         id="obat" name="obat[]"
                                                                         value="{{ $item->id }}">
                                                                     <label class="form-check-label" for="gridCheck1">
-                                                                        {{ $item->nama }}
+                                                                        {{ $item->nama . ' (' . $item->jenis . ')' }}
                                                                     </label>
                                                                 </div>
                                                             </div>

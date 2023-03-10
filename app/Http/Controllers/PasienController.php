@@ -22,7 +22,11 @@ class PasienController extends Controller
      */
     public function index()
     {
-        $data = User::where('role', 'pasien')->get();
+        $data = Cluster::join('users', 'users.id', '=', 'clusters.pasien_id')
+            ->where('clusters.faskes_id', Auth::user()->id)
+            ->where('users.role', 'pasien')
+            ->get();
+        // dd($data);
         $cluster = Cluster::all();
         $faskes = User::where('role', 'faskes')->get();
         return view('pasien.index', compact('data', 'faskes', 'cluster'));

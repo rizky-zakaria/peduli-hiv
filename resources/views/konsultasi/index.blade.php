@@ -27,7 +27,7 @@
                                             <ul class="list-unstyled list-unstyled-border">
                                                 @foreach ($data as $item)
                                                     <li class="media" id="list"
-                                                        onclick="getChat({{ $item->id }})">
+                                                        onclick="getChat({{ $item->pasien_id }})">
                                                         <img alt="image" class="mr-3 rounded-circle" width="50"
                                                             src="{{ asset('stisla/dist/assets/img/avatar/avatar-1.png') }}">
                                                         <div class="media-body">
@@ -67,6 +67,7 @@
     </div>
     <script>
         function getChat(id) {
+            console.log(id);
             $("#spaceName").remove();
             $("#spaceForm").remove();
             $("#spaceId").remove();
@@ -79,6 +80,7 @@
                 data: "data",
                 dataType: "json",
                 success: function(response) {
+                    console.log(response);
                     chat(id);
                     $("#namaPersonal").append(
                         `

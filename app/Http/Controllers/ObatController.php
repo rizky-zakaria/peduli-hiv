@@ -26,7 +26,7 @@ class ObatController extends Controller
         $jumlah = count($obat);
         $distribusi = DistribusiObat::join('users', 'users.id', '=', 'distribusi_obats.pasien_id')
             ->join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
-            ->get();
+            ->get(['users.name', 'obats.nama', 'obats.jenis', 'distribusi_obats.jumlah', 'distribusi_obats.dosis', 'distribusi_obats.jam', 'distribusi_obats.menit', 'distribusi_obats.id']);
         return view('obat.index', compact('data', 'obat', 'jumlah', 'distribusi'));
     }
 
@@ -51,6 +51,18 @@ class ObatController extends Controller
         ]);
         toast('Berhasil Melakukan Transaksi', 'success');
         return redirect(url('faskes/obat'));
+    }
+
+    public function deleteDistribusi($id)
+    {
+        $data = DistribusiObat::find($id);
+        $data->delete();
+        if ($data) {
+            toast('Berhasil menghapus data!', 'success');
+        } else {
+            toast('Berhasil menghapus data!', 'success');
+        }
+        return redirect(route('obat.index'));
     }
 
     /**

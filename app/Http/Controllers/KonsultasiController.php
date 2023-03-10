@@ -19,7 +19,7 @@ class KonsultasiController extends Controller
 
     public function getClusterById($id)
     {
-        $data = Cluster::find($id)
+        $data = Cluster::where('pasien_id', $id)
             ->join('users', 'users.id', '=', 'clusters.pasien_id')
             ->first();
         return response()->json($data);
