@@ -24,9 +24,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nomor Regis Nasional</th>
                                         <th>Nama Pasien</th>
                                         <th>Email</th>
-                                        <th>Jabatan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -34,9 +34,9 @@
                                     @foreach ($data as $pasien)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $pasien->no_reg_nas }}</td>
                                             <td>{{ $pasien->name }}</td>
                                             <td>{{ $pasien->email }}</td>
-                                            <td>{{ $pasien->role }}</td>
                                             <td>
                                                 <form action="{{ route('pasien.destroy', $pasien->id) }}" method="POST">
                                                     <a class="btn btn-success"
@@ -59,9 +59,9 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nomor Regis Nasional</th>
                                         <th>Nama Pasien</th>
                                         <th>Email</th>
-                                        <th>Jabatan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>

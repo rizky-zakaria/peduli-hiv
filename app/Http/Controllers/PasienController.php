@@ -23,6 +23,7 @@ class PasienController extends Controller
     public function index()
     {
         $data = Cluster::join('users', 'users.id', '=', 'clusters.pasien_id')
+            ->join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
             ->where('clusters.faskes_id', Auth::user()->id)
             ->where('users.role', 'pasien')
             ->get();
