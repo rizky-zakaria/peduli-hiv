@@ -110,6 +110,9 @@ class ArtController extends Controller
 
     public function getDataPasien(Request $request)
     {
+        $this->validate($request, [
+            'id' => 'required'
+        ]);
         $biodata = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
             ->join('clusters', 'clusters.pasien_id', '=', 'users.id')
             ->where('clusters.faskes_id', $request->id)

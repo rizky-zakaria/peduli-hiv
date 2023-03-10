@@ -24,8 +24,12 @@
     <div class="container d-flex justify-content-center mt-5">
         <span class="text-center">
             <h3>Laporan Bulan <br> Perawatan HIV & ART</h3>
-            <p>{{ Auth::user()->name }} <br>
-                Alamat : {{ Auth::user()->alamat }}</p>
+            @if (Auth::user()->role === 'faskes')
+                <p>{{ Auth::user()->name }} <br>
+                    Alamat : {{ Auth::user()->alamat }}</p>
+            @else
+                Periode : {{ $periode }}
+            @endif
         </span>
     </div>
     <div class="container d-flex justify-content-center mt-1">
