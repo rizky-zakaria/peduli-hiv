@@ -172,7 +172,7 @@
                                                         @endforeach
                                                         <div class="col-sm-6">
                                                             <input type="number" class="form-control"
-                                                                placeholder="Banyak" name="banyak">
+                                                                placeholder="Banyak" name="banyak" required>
                                                         </div>
                                                     </div>
                                                 </div>

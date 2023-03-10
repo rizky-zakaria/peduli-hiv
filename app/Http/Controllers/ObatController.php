@@ -32,24 +32,29 @@ class ObatController extends Controller
 
     public function ambilObat(Request $request)
     {
-        // dd($request);
+        // dd($request->obat);
         $pasien = User::find($request->userId);
-        for ($i = 0; $i < count($request->obat); $i++) {
-            DistribusiObat::create([
-                'pasien_id' => $request->userId,
-                'faskes_id' => Auth::user()->id,
-                'obat_id' => $request->obat[$i],
-                'dosis' => $request->dosis,
-                'jumlah' => $request->banyak,
-                'jam' => $request->jam,
-                'menit' => $request->menit
+        if ($request->obat == null) {
+            toast('Pilih Obat terlebih dahulu', 'error');
+        } else {
+            for ($i = 0; $i < count($request->obat); $i++) {
+                DistribusiObat::create([
+                    'pasien_id' => $request->userId,
+                    'faskes_id' => Auth::user()->id,
+                    'obat_id' => $request->obat[$i],
+                    'dosis' => $request->dosis,
+                    'jumlah' => $request->banyak,
+                    'jam' => $request->jam,
+                    'menit' => $request->menit
+                ]);
+            }
+            HistoriObat::create([
+                'history' => Auth::user()->name . " memberikan obat kepada pasien " . $pasien->name . " pada tanggal " . date('d M Y')
             ]);
+            toast('Berhasil Melakukan Transaksi', 'success');
         }
 
-        HistoriObat::create([
-            'history' => Auth::user()->name . " memberikan obat kepada pasien " . $pasien->name . " pada tanggal " . date('d M Y')
-        ]);
-        toast('Berhasil Melakukan Transaksi', 'success');
+
         return redirect(url('faskes/obat'));
     }
 
