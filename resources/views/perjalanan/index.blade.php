@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <h4>Laporan Perjalanan</h4>
-                        <a href="{{ route('konsumsi-obat.printAll') }}" class="btn btn-warning"><i class="fas fa-print"></i>
+                        <a href="{{ route('perjalanan.printAll') }}" class="btn btn-warning"><i class="fas fa-print"></i>
                             Print Semua Data</a>
                     </div>
                     <div class="card-body">
