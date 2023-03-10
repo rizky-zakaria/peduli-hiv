@@ -28,7 +28,7 @@
                 <p>{{ Auth::user()->name }} <br>
                     Alamat : {{ Auth::user()->alamat }}</p>
             @else
-                Periode : {{ $periode }}
+                <b>Periode : {{ $periode }}</b>
             @endif
         </span>
     </div>
