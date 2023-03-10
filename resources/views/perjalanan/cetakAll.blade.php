@@ -17,15 +17,14 @@
                     Alamat : {{ $faskes->alamat }}</p>
             </span>
         </div>
-        <table border="1" style="width: 100%">
+        <table border="1" style="width: 100%; margin-top: 3%">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama Pasien</th>
-                    <th>Periode</th>
-                    <th>Target</th>
-                    <th>Konsumsi</th>
-                    <th>Terlewati</th>
+                    <th>Tanggal Pergi</th>
+                    <th>Tanggal Kembali</th>
+                    <th>Tujuan</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +32,9 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $row->name }}</td>
-                        <td>{{ $row->periode }}</td>
-                        <td>{{ $row->konsumsi + $row->terlewati }}</td>
-                        <td>{{ $row->konsumsi }}</td>
-                        <td>{{ $row->terlewati }}</td>
+                        <td>{{ $row->tgl_kunjungan }}</td>
+                        <td>{{ $row->tgl_pulang }}</td>
+                        <td>{{ $row->tujuan }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -44,10 +42,9 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Pasien</th>
-                    <th>Periode</th>
-                    <th>Target</th>
-                    <th>Konsumsi</th>
-                    <th>Terlewati</th>
+                    <th>Tanggal Pergi</th>
+                    <th>Tanggal Kembali</th>
+                    <th>Tujuan</th>
                 </tr>
             </tfoot>
         </table>
