@@ -87,6 +87,20 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="domisili">Domisili</label>
+                                        <select name="domisili" id="domisili" class="form-control" required>
+                                            <option selected disabled>Pilih</option>
+                                            <option value="Kota Gorontalo">Kota Gorontalo</option>
+                                            <option value="Kab. Gorontalo">Kab. Gorontalo</option>
+                                            <option value="Kab. Bonebolango">Kab. Bonebolango</option>
+                                            <option value="Kab. Boalemo">Kab. Boalemo</option>
+                                            <option value="Kab. Pohuwato">Kab. Pohuwato</option>
+                                            <option value="Kab. Gorontalo Utara">Kab. Gorontalo Utara</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('pendidikan');
             $table->string('hamil');
             $table->string('fungsional');
+            $table->string('domisili');
         });
     }
 

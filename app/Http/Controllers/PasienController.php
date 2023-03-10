@@ -118,7 +118,8 @@ class PasienController extends Controller
             'pendidikan' => $request->pendidikan,
             'hamil' => $request->hamil,
             'fungsional' => $request->fungsional,
-            'jenis' => $request->jenis
+            'jenis' => $request->jenis,
+            'domisili' => $request->domisili
         ]);
 
         Cluster::create([

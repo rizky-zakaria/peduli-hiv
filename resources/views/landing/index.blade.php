@@ -190,115 +190,23 @@
                         </table>
 
                         <span>
-                            Distribusi HIV-AIDS berdasarkan Kelompok Umur <br>
-                            di Provinsi Gorontalo Tahun 2001 s/d {{ date('Y') }}
-                        </span>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col" rowspan="2">Usia</th>
-                                    <th scope="col" colspan="2">Diagnosa</th>
-                                    <th scope="col" rowspan="2">Jumlah</th>
-                                </tr>
-                                <tr>
-                                    <th>HIV</th>
-                                    <th>AIDS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        < 1</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>15 - 24</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>25 - 49</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>> 50</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr class="text-light bg-primary">
-                                    <td>Jumlah</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <span>
                             Distribusi HIV-AIDS berdasarkan Domisili <br>
                             di Provinsi Gorontalo Tahun 2001 s/d 2011
                         </span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col" rowspan="2">Domisili</th>
-                                    <th scope="col" colspan="2">Diagnosa</th>
-                                    <th scope="col" rowspan="2">Jumlah</th>
-                                </tr>
-                                <tr>
-                                    <th>HIV</th>
-                                    <th>AIDS</th>
+                                    <th scope="col">Domisili</th>
+                                    <th scope="col">Jumlah</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Kota Gorontalo</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>Kab. Gorontalo</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>Kab. Gorontalo Utara</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>Kab. Pohuwato</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>Kab. Bonebolango</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>Kab. Boalemo</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr class="text-light bg-primary">
-                                    <td>Jumlah</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>11</td>
-                                </tr>
+                                @foreach ($domisili as $item)
+                                    <tr>
+                                        <td>{{ $item->domisili }}</td>
+                                        <td>{{ $item->total }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
 

@@ -30,6 +30,10 @@ class LandingController extends Controller
             ->select('jenis', DB::raw('count(*) as total'))
             ->groupBy('jenis')
             ->get();
-        return view('landing.index', compact('tahun', 'jk', 'pekerjaan', 'fungsional', 'jenis'));
+        $domisili = DB::table('biodatas')
+            ->select('domisili', DB::raw('count(*) as total'))
+            ->groupBy('domisili')
+            ->get();
+        return view('landing.index', compact('tahun', 'jk', 'pekerjaan', 'fungsional', 'jenis', 'domisili'));
     }
 }

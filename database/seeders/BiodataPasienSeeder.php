@@ -29,7 +29,8 @@ class BiodataPasienSeeder extends Seeder
             'pekerjaan' => 'Dosen',
             'pendidikan' => 'S2',
             'hamil' => 'TIDAK',
-            'fungsional' => 'Kerja'
+            'fungsional' => 'Kerja',
+            'domisili' => 'Kab. Gorontalo'
         ]);
     }
 }
