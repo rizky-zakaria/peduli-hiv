@@ -28,7 +28,8 @@ class HistoriController extends Controller
 
     public function getNotif(Request $request)
     {
-        $data = NotifDistribusi::where('user_id', $request->id)->get();
+        $data = NotifDistribusi::orderBy('created_at', 'desc')
+            ->where('user_id', $request->id)->get();
         if ($data) {
             return response()->json([
                 'success' => true,
