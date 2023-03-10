@@ -21,7 +21,8 @@ class FaskesSeeder extends Seeder
             'email' => 'rizky.zakaria78@gmail.com',
             'password' => Hash::make('123'),
             'role' => 'faskes',
-            'alamat' => 'Jln. Kenangan No. 1, Kota Gorontalo'
+            'alamat' => 'Jln. Kenangan No. 1, Kota Gorontalo',
+            'jenis' => 'Rumah Sakit'
         ]);
     }
 }

@@ -21,7 +21,8 @@ class PasienSeeder extends Seeder
             'email' => 'salman@gmail.com',
             'password' => Hash::make('salman123'),
             'role' => 'pasien',
-            'alamat' => 'Jln. Kenangan no. 2'
+            'alamat' => 'Jln. Kenangan no. 2',
+            'jenis' => '-'
         ]);
     }
 }

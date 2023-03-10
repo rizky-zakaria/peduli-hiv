@@ -41,6 +41,7 @@ class FaskesController extends Controller
             'name' => 'required|min:5',
             'email' => 'required|email',
             'password' => 'required',
+            'jenis' => 'required'
         ]);
 
         $faskes = new User();
@@ -48,6 +49,7 @@ class FaskesController extends Controller
         $faskes->email = $request->email;
         $faskes->password = Hash::make($request->password);
         $faskes->role = 'faskes';
+        $faskes->jenis = $request->jenis;
         $faskes->alamat = $request->alamat;
 
         $faskes->save();

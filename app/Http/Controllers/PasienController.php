@@ -101,6 +101,7 @@ class PasienController extends Controller
         $pasien->password = Hash::make($request->password);
         $pasien->role = 'pasien';
         $pasien->alamat = $request->alamat;
+        $pasien->jenis = '-';
         $pasien->save();
 
         $biodata = Biodata::create([

@@ -18,7 +18,7 @@
                         <form action="{{ route('faskes.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="nama">Nama Pasien</label>
+                                <label for="nama">Nama Faskes</label>
                                 <input type="text" class="form-control" id="nama" placeholder="Nama Faskes"
                                     name="name" required>
                             </div>
@@ -31,6 +31,15 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" placeholder="Password"
                                     name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis">Jenis</label>
+                                <select name="jenis" id="jenis" class="form-control">
+                                    <option selected disabled>Pilih</option>
+                                    <option value="Rumah Sakit">Rumah Sakit</option>
+                                    <option value="Puskesmas">Puskesmas</option>
+                                    <option value="Klinik">Klinik</option>
+                                </select>
                             </div>
                             <div class="form-row">
                                 <div class="col">
