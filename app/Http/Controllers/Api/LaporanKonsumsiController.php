@@ -7,6 +7,7 @@ use App\Models\DistribusiObat;
 use App\Models\Histori;
 use App\Models\KonsumsiObat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaporanKonsumsiController extends Controller
 {
@@ -32,6 +33,28 @@ class LaporanKonsumsiController extends Controller
     {
         $id = $request->id;
         $data = DistribusiObat::where('pasien_id', $id)->first(['jam', 'menit']);
+        if ($data) {
+            return response()->json([
+                'success' => true,
+                'message'    => 'Successfully',
+                'data'    => $data,
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message'    => 'Not Found',
+            ], 404);
+        }
+    }
+
+    public function getNamaObat(Request $request)
+    {
+        $data = DB::table('distribusi_obats')
+            ->join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
+            ->where('distribusi_obats.pasien_id', $request->id)
+            ->select('obats.nama')
+            ->groupBy('obats.nama')
+            ->get();
         if ($data) {
             return response()->json([
                 'success' => true,

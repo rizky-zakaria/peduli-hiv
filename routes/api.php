@@ -48,3 +48,4 @@ Route::post('histori', [HistoriController::class, 'getHistoriById']);
 Route::post('get/alarm', [LaporanKonsumsiController::class, 'getAlarm']);
 Route::post('get/user', [UserController::class, 'getBiodata']);
 Route::post('get-notif', [HistoriController::class, 'getNotif']);
+Route::post('get-nama-obat', [LaporanKonsumsiController::class, 'getNamaObat']);
