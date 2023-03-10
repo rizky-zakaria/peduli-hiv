@@ -12,7 +12,7 @@
     <center>
         <div class="container d-flex justify-content-center mt-5">
             <span class="text-center">
-                <h3>Laporan Pasien HIV-AIDS</h3>
+                <h3>Laporan Konsumsi Obat Pasien HIV-AIDS</h3>
                 <p>{{ $faskes->name }} <br>
                     Alamat : {{ $faskes->alamat }}</p>
             </span>
@@ -28,11 +28,6 @@
             <td>NIK</td>
             <td>:</td>
             <td>{{ $user->nik }}</td>
-        </tr>
-        <tr>
-            <td>No. Rekamedis</td>
-            <td>:</td>
-            <td>{{ $user->no_rekamedik }}</td>
         </tr>
         <tr>
             <td>No. Registrasi</td>

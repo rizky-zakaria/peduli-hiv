@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LaporanKondisi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KesehatanController extends Controller
 {
@@ -24,14 +25,18 @@ class KesehatanController extends Controller
         $data = LaporanKondisi::join('users', 'users.id', '=', 'laporan_kondisis.user_id')
             ->where('users.id', $id)
             ->get();
+
+        $faskes = User::find(Auth::user()->id);
         $user = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')->where('users.id', $id)->first();
-        return view('kondisi.cetakById', compact('data', 'user'));
+        return view('kondisi.cetakById', compact('data', 'user', 'faskes'));
     }
 
     public function cetakAll()
     {
+
+        $faskes = User::find(Auth::user()->id);
         $data = LaporanKondisi::join('users', 'users.id', '=', 'laporan_kondisis.user_id')->get();
-        return view('kondisi.cetakAll', compact('data'));
+        return view('kondisi.cetakAll', compact('data', 'faskes'));
     }
 
     /**

@@ -12,7 +12,7 @@
     <center>
         <div class="container d-flex justify-content-center mt-5">
             <span class="text-center">
-                <h3>Laporan Pasien HIV-AIDS</h3>
+                <h3>Laporan Konsumsi Obat Pasien HIV-AIDS</h3>
                 <p>{{ $faskes->name }} <br>
                     Alamat : {{ $faskes->alamat }}</p>
             </span>

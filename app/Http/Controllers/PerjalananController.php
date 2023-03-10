@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LaporanPerjalanan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PerjalananController extends Controller
 {
@@ -25,14 +26,18 @@ class PerjalananController extends Controller
         $data = LaporanPerjalanan::join('users', 'users.id', '=', 'laporan_perjalanans.pasien_id')
             ->where('users.id', $id)
             ->get();
+
+        $faskes = User::find(Auth::user()->id);
         $user = User::join('biodatas', 'biodatas.pasien_id', '=', 'users.id')->where('users.id', $id)->first();
-        return view('perjalanan.cetakById', compact('data', 'user'));
+        return view('perjalanan.cetakById', compact('data', 'user', 'faskes'));
     }
 
     public function cetakAll()
     {
+
+        $faskes = User::find(Auth::user()->id);
         $data = LaporanPerjalanan::join('users', 'users.id', '=', 'laporan_perjalanans.pasien_id')->get();
-        return view('perjalanan.cetakAll', compact('data'));
+        return view('perjalanan.cetakAll', compact('data', 'faskes'));
     }
 
     /**
