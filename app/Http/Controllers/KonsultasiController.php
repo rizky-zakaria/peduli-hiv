@@ -48,7 +48,8 @@ class KonsultasiController extends Controller
 
     public function getChat($id)
     {
-        $data = Chat::where('cluster_id', $id)->get();
+        $cluster_id = Cluster::where('pasien_id', $id)->first();
+        $data = Chat::where('cluster_id', $cluster_id->id)->get();
         return response()->json($data);
     }
 }
