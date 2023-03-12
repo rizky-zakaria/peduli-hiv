@@ -27,8 +27,9 @@ class KonsultasiController extends Controller
 
     public function postChat(Request $request)
     {
+        $cluster_id = Cluster::where('pasien_id', $request->id)->first();
         $chat = new Chat;
-        $chat->cluster_id = $request->id;
+        $chat->cluster_id = $cluster_id->id;
         $chat->pengirim = Auth::user()->role;
         $chat->pesan = $request->pesan;
         $chat->waktu = date('H:i:s');
