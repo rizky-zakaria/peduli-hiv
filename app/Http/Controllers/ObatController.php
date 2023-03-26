@@ -58,8 +58,6 @@ class ObatController extends Controller
             ]);
             toast('Berhasil Melakukan Transaksi', 'success');
         }
-
-
         return redirect(url('faskes/obat'));
     }
 
