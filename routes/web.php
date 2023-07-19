@@ -72,4 +72,43 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:pasien'], 'prefix' => 'pasien'], function () {
         Route::get('home', [HomeController::class, 'pasien'])->name('pasien.home');
     });
+    Route::group(['middleware' => ['role:kabgor'], 'prefix' => 'kabgor'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kabgor.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kabgor.index');
+        Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art-kabgor.post');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kabgor.pasien');
+    });
+    Route::group(['middleware' => ['role:kabbonbol'], 'prefix' => 'kabbonbol'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kabbonbol.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kabbonbol.index');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kabbonbol.pasien');
+    });
+    Route::group(['middleware' => ['role:kotagor'], 'prefix' => 'kotagor'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kotagor.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kotagor.index');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kotagor.pasien');
+    });
+    Route::group(['middleware' => ['role:kabbol'], 'prefix' => 'kabbol'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kabbol.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kabbol.index');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kabbol.pasien');
+    });
+    Route::group(['middleware' => ['role:kabpoh'], 'prefix' => 'kabpoh'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kabpoh.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kabpoh.index');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kabpoh.pasien');
+    });
+    Route::group(['middleware' => ['role:kabgorut'], 'prefix' => 'kabgorut'], function () {
+        Route::post('pasien/manajemen-user', [PasienController::class, 'manajemen']);
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'dikes'])->name('kabgorut.home');
+        Route::get('data-master/art', [ArtController::class, 'index'])->name('art-kabgorut.index');
+        Route::get('data-master/laporan/pasien', [ArtController::class, 'pasien'])->name('kabgorut.pasien');
+    });
+    Route::post('data-master/art', [ArtController::class, 'getArt'])->name('art-wilayah.post');
+    Route::get('data-master/get-data-pasien', [ArtController::class, 'getDataPasienWilayah'])->name('wilayah.pasien');
 });

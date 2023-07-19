@@ -35,8 +35,21 @@ class LoginController extends Controller
             return '/faskes/home';
         } else if (auth()->user()->role == 'pasien') {
             return '/pasien/home';
+        } else if (auth()->user()->role == 'kotagor') {
+            return '/kotagor/home';
+        } else if (auth()->user()->role == 'kabbonbol') {
+            return '/kabbonbol/home';
+        } else if (auth()->user()->role == 'kabgor') {
+            return '/kabgor/home';
+        } else if (auth()->user()->role == 'kabbol') {
+            return '/kabbol/home';
+        } else if (auth()->user()->role == 'kabpoh') {
+            return '/kabpoh/home';
+        } else if (auth()->user()->role == 'kabgorut') {
+            return '/kabgorut/home';
+        } else {
+            return 'login';
         }
-        return 'login';
     }
 
     /**

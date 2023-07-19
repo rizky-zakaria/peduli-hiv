@@ -101,6 +101,114 @@
                     <a href="{{ route('dikes.home') }}" class="nav-link"><i
                             class="fas fa-home"></i><span>Home</span></a>
                 </li>
+            @elseif(auth()->user()->role == 'kotagor')
+                <li class="{{ request()->is('kotagor/home') ? 'active' : '' }}">
+                    <a href="{{ route('kotagor.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kotagor/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kotagor.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kotagor/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kotagor.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
+            @elseif(auth()->user()->role == 'kabbonbol')
+                <li class="{{ request()->is('kabbonbol/home') ? 'active' : '' }}">
+                    <a href="{{ route('kabbonbol.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kabbonbol/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kabbonbol.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kabbonbol/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kabbonbol.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
+            @elseif(auth()->user()->role == 'kabgor')
+                <li class="{{ request()->is('kabgor/home') ? 'active' : '' }}">
+                    <a href="{{ route('kabgor.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kabgor/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kabgor.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kabgor/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kabgor.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
+            @elseif(auth()->user()->role == 'kabbol')
+                <li class="{{ request()->is('kabbol/home') ? 'active' : '' }}">
+                    <a href="{{ route('kabbol.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kabbol/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kabbol.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kabbol/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kabbol.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
+            @elseif(auth()->user()->role == 'kabpoh')
+                <li class="{{ request()->is('kabpoh/home') ? 'active' : '' }}">
+                    <a href="{{ route('kabpoh.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kabpoh/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kabpoh.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kabpoh/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kabpoh.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
+            @elseif(auth()->user()->role == 'kabgorut')
+                <li class="{{ request()->is('kabgorut/home') ? 'active' : '' }}">
+                    <a href="{{ route('kabgorut.home') }}" class="nav-link"><i
+                            class="fas fa-home"></i><span>Home</span></a>
+                </li>
+
+                <li class="menu-header">Data Master </li>
+                <li class="menu-header">Laporan</li>
+                <li class="{{ request()->is('kabgorut/data-master/art') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('art-kabgorut.index') }}"><i class="fas fa-chart-bar"></i>
+                        <span>ART</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('kabgorut/data-master/laporan/pasien') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('kabgorut.pasien') }}"><i class="fas fa-file"></i>
+                        <span>Pasien</span>
+                    </a>
+                </li>
             @endif
         </ul>
 

@@ -18,8 +18,10 @@
                     <div class="card-body">
                         @if (Auth::user()->role === 'dikes')
                             <form action="{{ route('art-dikes.post') }}" method="post">
-                            @else
+                            @elseif(Auth::user()->role === 'faskes')
                                 <form action="{{ route('art.post') }}" method="post">
+                                @else
+                                    <form action="{{ route('art-wilayah.post') }}" method="post">
                         @endif
                         @csrf
                         <div class="form-row">

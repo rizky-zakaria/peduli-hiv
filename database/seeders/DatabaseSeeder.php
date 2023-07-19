@@ -26,5 +26,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PasienSeeder::class);
         $this->call(BiodataPasienSeeder::class);
         $this->call(ClusterSeeder::class);
+        $this->call(KabBolSeeder::class);
+        $this->call(KabBonbolSeeder::class);
+        $this->call(KabGorSeeder::class);
+        $this->call(KabGorutSeeder::class);
+        $this->call(KabPohSeeder::class);
+        $this->call(KotaGorSeeder::class);
     }
 }
