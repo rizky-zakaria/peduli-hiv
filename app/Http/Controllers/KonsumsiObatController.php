@@ -32,7 +32,6 @@ class KonsumsiObatController extends Controller
 
     public function cetakAll()
     {
-
         $faskes = User::find(Auth::user()->id);
         $data = KonsumsiObat::join('users', 'users.id', '=', 'konsumsi_obats.pasien_id')->get();
         return view('konsumsi-obat.cetakAll', compact('data', 'faskes'));

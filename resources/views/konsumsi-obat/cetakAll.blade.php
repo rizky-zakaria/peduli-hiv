@@ -26,6 +26,7 @@
                     <th>Target</th>
                     <th>Konsumsi</th>
                     <th>Terlewati</th>
+                    <th>Klasifikasi</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,15 @@
                         <td>{{ $row->konsumsi + $row->terlewati }}</td>
                         <td>{{ $row->konsumsi }}</td>
                         <td>{{ $row->terlewati }}</td>
+                        <td>
+                            @if ($row->kepatuhan <= 80)
+                                Pengecekan Laboratorium
+                            @elseif($row->kepatuhan <= 95)
+                                Dirujuk ke Faskes
+                            @else
+                                Minum Obat
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -48,6 +58,7 @@
                     <th>Target</th>
                     <th>Konsumsi</th>
                     <th>Terlewati</th>
+                    <th>Klasifikasi</th>
                 </tr>
             </tfoot>
         </table>

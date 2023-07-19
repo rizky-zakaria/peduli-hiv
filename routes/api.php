@@ -34,6 +34,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * route "/logout"
  * @method "POST"
  */
+Route::get('get-keluhan/{id}', [LaporanKondisiController::class, 'getKeluhan']);
 Route::post('chat/get-chat', [KonsultasiController::class, 'getChat']);
 Route::post('chat/post-chat', [KonsultasiController::class, 'postChatText']);
 Route::get('faskes-name/{id}', [KonsultasiController::class, 'getFaskesName']);
@@ -49,3 +50,4 @@ Route::post('get/alarm', [LaporanKonsumsiController::class, 'getAlarm']);
 Route::post('get/user', [UserController::class, 'getBiodata']);
 Route::post('get-notif', [HistoriController::class, 'getNotif']);
 Route::post('get-nama-obat', [LaporanKonsumsiController::class, 'getNamaObat']);
+Route::post('get-detail-obat', [LaporanKonsumsiController::class, 'getDetailKonsumsi']);

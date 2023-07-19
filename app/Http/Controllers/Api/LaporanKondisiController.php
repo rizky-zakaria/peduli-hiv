@@ -53,4 +53,24 @@ class LaporanKondisiController extends Controller
             ], 404);
         }
     }
+
+    public function getKeluhan($id)
+    {
+        $bulan = date('Y-m', strtotime(date('Y-m') . '- 1 month'));
+        $data = LaporanKondisi::where('created_at', 'like', '%' . $bulan . '%')
+            ->where('user_id', $id)
+            ->get();
+        if ($data) {
+            return response()->json([
+                'success' => true,
+                'message'    => 'Successfully',
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message'    => 'Not Found',
+            ], 404);
+        }
+    }
 }

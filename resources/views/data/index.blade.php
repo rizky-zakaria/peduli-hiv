@@ -38,6 +38,19 @@
                                     <option value="Oktober">Oktober</option>
                                     <option value="November">November</option>
                                     <option value="Desember">Desember</option>
+                                    {{-- <option disabled selected>Pilih Periode</option>
+                                    <option value="{{ 'Jan-' . date('Y') }}">Januari</option>
+                                    <option value="{{ 'Feb-' . date('Y') }}">Februari</option>
+                                    <option value="{{ 'Mar-' . date('Y') }}">Maret</option>
+                                    <option value="{{ 'Apr-' . date('Y') }}">April</option>
+                                    <option value="{{ 'May-' . date('Y') }}">Mei</option>
+                                    <option value="{{ 'Jun-' . date('Y') }}">Juni</option>
+                                    <option value="{{ 'Jul-' . date('Y') }}">Juli</option>
+                                    <option value="{{ 'Aug-' . date('Y') }}">Agustus</option>
+                                    <option value="{{ 'Sep-' . date('Y') }}">September</option>
+                                    <option value="{{ 'Oct-' . date('Y') }}">Oktober</option>
+                                    <option value="{{ 'Nov-' . date('Y') }}">November</option>
+                                    <option value="{{ 'Dec-' . date('Y') }}">Desember</option> --}}
                                 </select>
                             </div>
                             <div class="col-2">

@@ -7,6 +7,7 @@ use App\Models\DistribusiObat;
 use App\Models\Histori;
 use App\Models\KonsumsiObat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class LaporanKonsumsiController extends Controller
@@ -49,11 +50,9 @@ class LaporanKonsumsiController extends Controller
 
     public function getNamaObat(Request $request)
     {
-        $data = DB::table('distribusi_obats')
-            ->join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
-            ->where('distribusi_obats.pasien_id', $request->id)
-            ->select('obats.nama')
-            ->groupBy('obats.nama')
+        $data = DistribusiObat::join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
+            ->where('pasien_id', $request->id)
+            ->orderBy('distribusi_obats.created_at', 'desc')
             ->get();
         if ($data) {
             return response()->json([
@@ -71,12 +70,27 @@ class LaporanKonsumsiController extends Controller
 
     public function postLapById(Request $request)
     {
+        $cek = KonsumsiObat::where('periode', date('M-Y'))
+            ->where('pasien_id', $request->id)
+            ->get();
+        if (count($cek) > 0) {
+            return response()->json([
+                'success' => false,
+                'message'    => 'Gagal input data',
+            ], 404);
+        }
+
+        $data = DistribusiObat::join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
+            ->where('pasien_id', $request->id)
+            ->orderBy('distribusi_obats.created_at', 'desc')
+            ->first(['obats.nama', 'obats.jenis', 'distribusi_obats.dosis', 'distribusi_obats.jam', 'distribusi_obats.menit', 'distribusi_obats.jumlah']);
+
         $post = new KonsumsiObat;
         $post->pasien_id = $request->id;
         $post->konsumsi = $request->konsumsi;
-        $post->terlewati = $request->terlewati;
-        $post->periode = $request->periode;
-        $post->kepatuhan = number_format($request->konsumsi / ($request->konsumsi + $request->terlewati) * 100, 2);
+        $post->terlewati = $data->jumlah - $request->konsumsi;
+        $post->periode = date('M-Y');
+        $post->kepatuhan = number_format($request->konsumsi * 100 / $data->jumlah, 2);
         $post->save();
 
         Histori::create([
@@ -88,6 +102,26 @@ class LaporanKonsumsiController extends Controller
             return response()->json([
                 'success' => true,
                 'message'    => 'Successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message'    => 'Not Found',
+            ], 404);
+        }
+    }
+
+    public function getDetailKonsumsi(Request $request)
+    {
+        $post = DistribusiObat::join('obats', 'obats.id', '=', 'distribusi_obats.obat_id')
+            ->where('pasien_id', $request->id)
+            ->orderBy('distribusi_obats.created_at', 'desc')
+            ->first(['obats.nama', 'obats.jenis', 'distribusi_obats.dosis', 'distribusi_obats.jam', 'distribusi_obats.menit', 'distribusi_obats.jumlah']);
+        if ($post) {
+            return response()->json([
+                'success' => true,
+                'message'    => 'Successfully',
+                'data' => $post
             ], 200);
         } else {
             return response()->json([

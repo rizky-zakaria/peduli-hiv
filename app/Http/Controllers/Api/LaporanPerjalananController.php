@@ -31,10 +31,10 @@ class LaporanPerjalananController extends Controller
     {
         $post = new LaporanPerjalanan;
         $post->pasien_id = $request->id;
-        $post->tgl_kunjungan = $request->tgl_kunjungan;
-        $post->tgl_pulang = $request->tgl_pulang;
+        $post->tgl_kunjungan = date('d-m-Y');
+        $post->tgl_pulang = date('d-m-Y');
         $post->tujuan = $request->tujuan;
-        $post->keterangan = $request->keterangan;
+        $post->keterangan = "-";
         $post->save();
 
         Histori::create([

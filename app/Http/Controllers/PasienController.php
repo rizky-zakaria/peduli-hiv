@@ -26,8 +26,7 @@ class PasienController extends Controller
             ->join('biodatas', 'biodatas.pasien_id', '=', 'users.id')
             ->where('clusters.faskes_id', Auth::user()->id)
             ->where('users.role', 'pasien')
-            ->get();
-        // dd($data);
+            ->get(['users.*', 'biodatas.no_reg_nas']);
         $cluster = Cluster::all();
         $faskes = User::where('role', 'faskes')->get();
         return view('pasien.index', compact('data', 'faskes', 'cluster'));
@@ -170,7 +169,7 @@ class PasienController extends Controller
         $pasien->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
 
         return redirect()->route('pasien.index');

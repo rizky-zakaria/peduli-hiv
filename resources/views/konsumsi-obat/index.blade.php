@@ -27,6 +27,7 @@
                                         <th>Konsumsi</th>
                                         <th>Terlewati</th>
                                         <th>Tingkat Kepatuhan</th>
+                                        <th>Klasifikasi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,15 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if ($row->kepatuhan <= 80)
+                                                    Pengecekan Laboratorium
+                                                @elseif($row->kepatuhan <= 95)
+                                                    Dirujuk ke Faskes
+                                                @else
+                                                    Minum Obat
+                                                @endif
+                                            </td>
+                                            <td>
                                                 <a href="{{ route('konsumsi-obat.print', $row->id) }}"
                                                     class="btn btn-warning"><i class="fas fa-print"></i></a>
                                             </td>
@@ -64,6 +74,7 @@
                                         <th>Konsumsi</th>
                                         <th>Terlewati</th>
                                         <th>Tingkat Kepatuhan</th>
+                                        <th>Klasifikasi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
